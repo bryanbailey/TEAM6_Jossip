@@ -48,7 +48,7 @@ include './resources/php/navbar.php';
         <p>You've successfully created an account with Jossip!</p><br>
         <p>Would you like to:</p>
         <ol>
-            <li><a href=#>Change your account details?</a></li>
+            <li><a href="#">Change your account details?</a></li>
             <li><a href="browsecos.php">Post and rate a position/company?</a></li>
         </ol>
 
