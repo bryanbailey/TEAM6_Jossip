@@ -7,16 +7,16 @@
         the navigation within the site. -->
 
     <!-- jquery 2.1.4 -->
-    <script src="./vendors/jquery-2.1.4.min.js"></script>
+    <script src="/vendors/jquery-2.1.4.min.js"></script>
 
     <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
-    <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 
     <!-- general Job Gossip styling -->
 
-    <link rel="stylesheet" type="text/css" href="./resources/css/jgStyle.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/css/jossstyle.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/jgStyle.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
 
 </head>
 
@@ -24,7 +24,7 @@
 
 <?php
 session_start();
-include './resources/php/navbar.php';
+include '/resources/php/navbar.php';
 ?>
 
 <div class = "container">
@@ -40,8 +40,8 @@ include './resources/php/navbar.php';
                 echo "<a class=\"list-group-item\" href=\"./login.php\">Login</a>";
             }
             ?>
-            <a class="list-group-item" href="./register.php">New user? Create an account by clicking here</a>
-            <a class="list-group-item" href="./browsecos.php">Browse company rankings</a>
+            <a class="list-group-item" href="/register.php">New user? Create an account by clicking here</a>
+            <a class="list-group-item" href="/browsecos.php">Browse company rankings</a>
         </div>
     </div>
 
@@ -50,8 +50,8 @@ include './resources/php/navbar.php';
     <div class="col-sm-offset-1 col-sm-8">
         <h3>Welcome to Jossip</h3>
         <p>Jossip ("jobs" + "gossip") is devoted to spreading the scuttlebutt about employers and positions that you won't find anywhere else!</p>
-        <p>To take full advantage of Jossip's features, create an <a href="./register.php"><b>account</b></a> so that you can access rated info on employers and positions.</p>
-        <p>As a casual site visitor, you can browse a list of companies rated by Jossip users <a href="./browsecos.php"><b>here</b></a>.</p>
+        <p>To take full advantage of Jossip's features, create an <a href="/register.php"><b>account</b></a> so that you can access rated info on employers and positions.</p>
+        <p>As a casual site visitor, you can browse a list of companies rated by Jossip users <a href="/browsecos.php"><b>here</b></a>.</p>
 
     </div>
 
