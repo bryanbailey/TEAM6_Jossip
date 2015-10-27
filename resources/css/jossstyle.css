@@ -55,6 +55,10 @@ a {
     width: 600px;
     float: right;
 }
+#sub{
+    width :600px;
+    float: left;
+}
 
 #logout {
     clear: #nav;
@@ -67,4 +71,18 @@ a {
     width: 16px;
     height: 16px;
     background: url('star.png') 0 -16px;
+}
+.box{
+    padding-top: 12px;
+    width: 180px;
+    float: left;
+    border: none;
+    position: relative;
+    font-size: 10pt;
+}
+.container-1 input#search{
+    width: 300px;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
 }

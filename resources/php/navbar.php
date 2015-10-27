@@ -16,25 +16,34 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./index.php">Job Gossip</a>
+            <a class="navbar-brand" href="/index.php">Job Gossip</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="./index.php">Home</a></li>
+                <li class="active"><a href="/index.php">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><div class="box">
+                        <div class="container-1">
+                            <span class="icon"><i class="fa fa-search"></i></span>
+                            <input type="search" id="search" placeholder="Job Search..." />
+                        </div>
+                    </div>
+                </li>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo isset($_SESSION['JobGossipLogin']) ? $_SESSION['user'] :  "Guest";  ?> <span class="caret"></span></a>
+
                     <ul class="dropdown-menu">
                         <?php
-                            if( isset( $_SESSION['JobGossipLogin'] ) ) {
-                                echo "<li><a href=\"./resources/php/logout.php\">Logout</a></li>";
-                            }else{
-                                echo "<li><a href=\"./login.php\">Login</a></li >";
-                            }
+                        if( isset( $_SESSION['JobGossipLogin'] ) ) {
+                            echo "<li><a href=\"/resources/php/logout.php\">Logout</a></li>";
+                        }else{
+                            echo "<li><a href=\"/login.php\">Login</a></li >";
+                        }
                         ?>
                     </ul>
                 </li>
@@ -44,4 +53,3 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
