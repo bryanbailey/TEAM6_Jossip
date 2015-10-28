@@ -30,7 +30,7 @@ if( isset($_POST['post_company'])) {
     <meta name="author" content="Praveen Kumar G">
     <title>New User Registration</title>
     <!-- jquery 2.1.4 -->
-    <script src="/vendors/jquery-2.1.4.min.js"></script>
+    <script src="./vendors/jquery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 core JS, Bootstrap 3.3.5 CSS-->
     <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
@@ -42,7 +42,7 @@ if( isset($_POST['post_company'])) {
 </head>
 <body>
 <?php
-include '/resources/php/navbar.php';
+include './resources/php/navbar.php';
 ?>
 
 
@@ -66,7 +66,7 @@ if( isset($_POST['post_company'])) {
         <div class="panel-heading"><h3>Company Information</h3></div>
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
-                <form method="POST" action="/Post_company.php">
+                <form method="POST" action="./Post_company.php">
 
                     <div class="form-group">
                         <label for="post_title">Company Name</label>
