@@ -54,13 +54,12 @@ if( isset($_POST['post_company'])) {
         echo '<div class="alert alert-warning text-center">post title Missing!</div>';
     }
 
-
 }
 ?>
 
 <div class="container">
 
-    <h1 class="page-header">New company post</h1>
+    <h1 class="page-header">New position / company post</h1>
 
 <!--    <div class="panel panel-dark">
         <div class="panel-heading"><h3>Company Information</h3></div> -->
@@ -79,20 +78,16 @@ if( isset($_POST['post_company'])) {
                         </select>
                     </div>
 
-<!--                    <div class="form-group">
-                        <label></label>
-                    </div>
-
                     <div class="form-group">
-                        <label for="post_title">Post Title</label>
+                        <label for="post_title">Position / job title</label>
                         <input type="text" class="form-control" name="post_title" id="post_title" />
                     </div>
 
                     <div class="form-group">
-                        <label for="pos_content">Post Content</label>
+                        <label for="pos_content">Job description / comments</label>
                         <input type="text" class="form-control" name="pos_content" id="pos_content"/>
                     </div>
--->
+
                     <label for="rating">Rating</label>
                     <span class="starRating">
 
