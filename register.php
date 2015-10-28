@@ -5,6 +5,7 @@ session_start();
 if( isset($_POST['register'])) {
     require '/resources/php/registerScript.php';
 
+    header("Location: /login.php");
 }
 
 
@@ -39,7 +40,7 @@ if( isset($_POST['register'])) {
 
 <body>
 <?php
-include '/resources/php/navbar.php';
+    include '/resources/php/navbar.php';
 ?>
 
 
