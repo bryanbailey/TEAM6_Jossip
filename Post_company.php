@@ -58,7 +58,7 @@ if( isset($_POST['post_company'])) {
         <div class="panel-heading"><h3>Company Information</h3></div>
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
-
+                <form method="POST" action="/Post_company.php">
                         <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Company Name
                             <span class="caret"></span></button>
@@ -97,7 +97,8 @@ if( isset($_POST['post_company'])) {
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
                     </div>
 
-                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
