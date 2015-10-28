@@ -3,7 +3,7 @@
 session_start();
 
 if( isset($_POST['register'])) {
-    require '/resources/php/registerScript.php';
+    require './resources/php/registerScript.php';
 
     header("Location: /login.php");
 }
@@ -18,18 +18,18 @@ if( isset($_POST['register'])) {
     <meta name="description" content="">
     <meta name="author" content="Kasey Eljoundi">
 
-    <title>New User Registration</title>
+    <title>New user registration</title>
 
     <!-- jquery 2.1.4 -->
-    <script src="/vendors/jquery-2.1.4.min.js"></script>
+    <script src="./vendors/jquery-2.1.4.min.js"></script>
 
     <!-- Bootstrap 3.3.5 core JS, Bootstrap 3.3.5 CSS-->
-    <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 
     <!-- General Job Gossip styling -->
-    <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
-    <link rel="stylesheet" href="/resources/css/jgStyle.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/jossstyle.css" />
+    <link rel="stylesheet" href="./resources/css/jgStyle.css">
 
 
     <style type="text/css">
@@ -40,7 +40,7 @@ if( isset($_POST['register'])) {
 
 <body>
 <?php
-    include '/resources/php/navbar.php';
+    include './resources/php/navbar.php';
 ?>
 
 
@@ -74,14 +74,14 @@ if( isset($_POST['register'])) {
 
 <div class="container">
 
-    <h1 class="page-header">New User Registration</h1>
+    <h1 class="page-header">New user registration</h1>
 
     <div class="panel panel-dark">
-        <div class="panel-heading"><h3>User Information</h3></div>
+<!--        <div class="panel-heading"><h3>User Information</h3></div> -->
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
 
-                <form method="POST" acion="/register.php">
+                <form method="POST" action="./register.php">
 
                     <div class="form-group">
                         <label>Name - First, Last</label>
