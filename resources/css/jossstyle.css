@@ -60,10 +60,6 @@ a {
     float: left;
 }
 
-#logout {
-    clear: #nav;
-}
-
 .rating-star {
     position: relative;
     float: right;
@@ -72,6 +68,11 @@ a {
     height: 16px;
     background: url('star.png') 0 -16px;
 }
+
+#logout {
+    clear: #nav;
+}
+
 .box{
     padding-top: 12px;
     width: 180px;
