@@ -13,7 +13,7 @@
     <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 
-    <!-- general Job Gossip styling -->
+    <!-- general Joossip styling -->
 
     <link rel="stylesheet" type="text/css" href="./resources/css/jgStyle.css" />
     <link rel="stylesheet" type="text/css" href="./resources/css/jossstyle.css" />
