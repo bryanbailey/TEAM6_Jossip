@@ -5,13 +5,16 @@
  * Date: 10/27/2015
  */
 session_start();
-
 if( isset($_POST['post_company'])) {
     require './resources/php/postcompanyscript.php';
-
 }
-
-
+try {
+    $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
+    $companyListSQL = "SELECT `company_id`, `company_name` FROM `Company` WHERE 1";
+    $companyListQuery = $mysqli->query($companyListSQL);
+} catch (\Exception $e) {
+    echo $e->getMessage(), PHP_EOL;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,36 +44,39 @@ include './resources/php/navbar.php';
 
 <?php
 if( isset($_POST['post_company'])) {
-
     if( !isset($_POST['post_title']) || $_POST['post_title'] == ""  ){
         echo '<div class="alert alert-warning text-center">post title Missing!</div>';
     }
-
-
-    }
+}
 ?>
 
 <div class="container">
 
-    <h1 class="page-header">New Company Registration</h1>
+    <h1 class="page-header">New company post</h1>
 
     <div class="panel panel-dark">
-        <div class="panel-heading"><h3>Company Information</h3></div>
+<!--        <div class="panel-heading"><h3>Company Information</h3></div> -->
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
                 <form method="POST" action="./Post_company.php">
-                        <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Company Name
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" name ="cname" value="3">Bank of America</a></li>
-                            <li><a href="#" name="cname" value="4" >IBM</a></li>
-                            <li><a href="#" name="cname" value="5">Wells Fargo</a></li>
-                        </ul>
-                    </div>
-                    <br>
 
-                        <div class="form-group">
+                    <div class="form-group">
+                        <label for="post_title">Company Name</label>
+                        <select name="company_id" class="form-control">
+                            <?php
+                            while( $row = $companyListQuery->fetch_assoc() ){
+                                echo '<option value="'.$row["company_id"].'">'.$row["company_name"].'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label></label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="post_title">Post Title</label>
                         <input type="text" class="form-control" name="post_title" id="post_title" />
                     </div>
@@ -81,18 +87,19 @@ if( isset($_POST['post_company'])) {
                     </div>
                     <label for="rating">Rating</label>
                     <span class="starRating">
-                        <input id="rating1" type="radio" name="rating" value="1">
-                        <label for="rating1">1</label>
-                        <input id="rating2" type="radio" name="rating" value="2">
-                        <label for="rating2">2</label>
-                        <input id="rating3" type="radio" name="rating" value="3">
-                        <label for="rating3">3</label>
-                        <input id="rating4" type="radio" name="rating" value="4">
-                        <label for="rating4">4</label>
                         <input id="rating5" type="radio" name="rating" value="5">
                         <label for="rating5">5</label>
-                    </span>
-                    <br /><br />
+                        <input id="rating4" type="radio" name="rating" value="4">
+                        <label for="rating4">4</label>
+                        <input id="rating3" type="radio" name="rating" value="3">
+                        <label for="rating3">3</label>
+                        <input id="rating2" type="radio" name="rating" value="2">
+                        <label for="rating2">2</label>
+                        <input id="rating1" type="radio" name="rating" value="1">
+                        <label for="rating1">1</label>
+                        </span>
+
+                    <br />
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
                     </div>
