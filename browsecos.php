@@ -19,11 +19,7 @@
 </head>
 <body>
 <?php
-/**
- * Created by PhpStorm.
- * User: Praveen G
- * Date: 10/27/2015
- */
+
 session_start();                    //call at very begining of all pages
 
 include './resources/php/navbar.php';
