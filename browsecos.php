@@ -40,24 +40,36 @@ include './resources/php/navbar.php';
         <h1>Jossip</h1>
     </div> -->
 
-    <div id = "nav">
+<!--    <div id = "nav">
 
-        <!-- <ul>
+        <ul>
             <li><a class="selected" href="index.php">Home</a></li><br>
             <li><a class="selected" href="register.php">New user?<br>Create an<br>account by<br>clicking here</a></li><br>
-        </ul> -->
+        </ul>
+    </div> -->
 
-
-    </div>
     <!-- Again, the following division is just mocked up for appearance, needs to be hooked to the database to produce the live
     results we are looking for -bb -->
 
-    <div class="col-sm-3">
+<!--    <div class="col-sm-3">
         <div class="list-group">
             <a href="./Post_company.php"> Post Jobs </a>
 
         </div>
+    </div> -->
+
+    <div class="col-sm-3">
+        <div class="list-group">
+            <?php
+            if( !isset( $_SESSION['JobGossipLogin'] ) ) {
+                echo "<a class=\"list-group-item\" href=\"./login.php\">Login</a>";
+            }
+            ?>
+            <a class="list-group-item" href="./register.php">New user? Create an account by clicking here</a>
+            <a class="list-group-item" href="./browsecos.php">Browse company rankings</a>
+        </div>
     </div>
+
     <div id = "main">
         <h3>Current Top Trending company rankings</h3>
         <?php
