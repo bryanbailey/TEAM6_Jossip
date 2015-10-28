@@ -71,7 +71,7 @@ include './resources/php/navbar.php';
     </div>
 
     <div id = "main">
-        <h3>Current Top Trending company rankings</h3>
+        <h3>Top-ranked trending companies</h3>
         <?php
         $companies = array (
             array ("IBM", 4.5),
