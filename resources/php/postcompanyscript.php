@@ -11,7 +11,7 @@ try {
     VALUES(?,'1',?,?,?,now())";
     $stmt = $mysqli->prepare($createcompany_postSQL);
     $stmt->bind_param('ssss',
-        $_POST['cname'],
+        $_POST['company_id'],
         $_POST['post_title'],
         $_POST['pos_content'],
         $_POST['rating']);

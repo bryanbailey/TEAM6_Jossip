@@ -5,6 +5,7 @@
 ---   Select SQL from the top nav bar
 ---   Paste this text into the large text area and run the query
 ---   Check your tables and make sure they added
+---   *** all fake users passwords are "password" ****
 
 
 -- phpMyAdmin SQL Dump
