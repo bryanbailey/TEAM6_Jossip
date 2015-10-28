@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,11 @@
 </head>
 <body>
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Praveen G
+ * Date: 10/27/2015
+ */
 session_start();                    //call at very begining of all pages
 
 include './resources/php/navbar.php';
@@ -41,14 +47,15 @@ include './resources/php/navbar.php';
             <li><a class="selected" href="register.php">New user?<br>Create an<br>account by<br>clicking here</a></li><br>
         </ul> -->
 
-    </div>
 
+    </div>
     <!-- Again, the following division is just mocked up for appearance, needs to be hooked to the database to produce the live
     results we are looking for -bb -->
 
     <div class="col-sm-3">
         <div class="list-group">
-            <a href="#">Post Jobs</a>
+            <a href="/Post_company.php"> Post Jobs </a>
+
         </div>
     </div>
     <div id = "main">
