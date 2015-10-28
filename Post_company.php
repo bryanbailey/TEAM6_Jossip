@@ -11,6 +11,14 @@ if( isset($_POST['post_company'])) {
 
 }
 
+    try {
+        $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
+        $companyListSQL = "SELECT `company_id`, `company_name` FROM `Company` WHERE 1";
+        $companyListQuery = $mysqli->query($companyListSQL);
+    } catch (\Exception $e) {
+        echo $e->getMessage(), PHP_EOL;
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -59,16 +67,22 @@ if( isset($_POST['post_company'])) {
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
                 <form method="POST" action="/Post_company.php">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Company Name
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" name ="cname" value="3">Bank of America</a></li>
-                            <li><a href="#" name="cname" value="4" >IBM</a></li>
-                            <li><a href="#" name="cname" value="5">Wells Fargo</a></li>
-                        </ul>
+
+                    <div class="form-group">
+                        <label for="post_title">Company Name</label>
+                        <select name="company_id" class="form-control">
+                             <?php
+                                while( $row = $companyListQuery->fetch_assoc() ){
+                                    echo '<option value="'.$row["company_id"].'">'.$row["company_name"].'</option>';
+                                }
+                             ?>
+                        </select>
                     </div>
-                    <br>
+
+
+                    <div class="form-group">
+                        <label></label>
+                    </div>
 
                     <div class="form-group">
                         <label for="post_title">Post Title</label>
