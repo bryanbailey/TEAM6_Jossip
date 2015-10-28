@@ -17,7 +17,7 @@ session_start();
     <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 
-    <!-- General Job Gossip styling -->
+    <!-- General Jossip styling -->
     <link rel="stylesheet" href="./resources/css/jgStyle.css">
 
     <style type="text/css">
