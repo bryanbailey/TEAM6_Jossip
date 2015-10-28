@@ -30,10 +30,10 @@ include './resources/php/navbar.php';
 ?>
 
 <div class = "container">
-    <div class="jumbotron">
+<!--    <div class="jumbotron">
         <h1>Jossip!</h1>
-    <!--    <p>Some words here. <a href="#">A Link.</a></p>  -->
-    </div>
+       <p>Some words here. <a href="#">A Link.</a></p>
+    </div> -->
 
 
     <!-- <div id = "header">
