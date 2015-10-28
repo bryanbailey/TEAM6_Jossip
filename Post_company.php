@@ -60,10 +60,10 @@ if( isset($_POST['post_company'])) {
 
 <div class="container">
 
-    <h1 class="page-header">New Company Registration</h1>
+    <h1 class="page-header">New company post</h1>
 
-    <div class="panel panel-dark">
-        <div class="panel-heading"><h3>Company Information</h3></div>
+<!--    <div class="panel panel-dark">
+        <div class="panel-heading"><h3>Company Information</h3></div> -->
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
                 <form method="POST" action="./Post_company.php">
@@ -79,8 +79,7 @@ if( isset($_POST['post_company'])) {
                         </select>
                     </div>
 
-
-                    <div class="form-group">
+<!--                    <div class="form-group">
                         <label></label>
                     </div>
 
@@ -93,6 +92,7 @@ if( isset($_POST['post_company'])) {
                         <label for="pos_content">Post Content</label>
                         <input type="text" class="form-control" name="pos_content" id="pos_content"/>
                     </div>
+-->
                     <label for="rating">Rating</label>
                     <span class="starRating">
 
@@ -108,7 +108,7 @@ if( isset($_POST['post_company'])) {
                         <label for="rating5">5</label>
                         </span>
 
-                    <br />
+                    <br /><br />
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
                     </div>
@@ -117,8 +117,6 @@ if( isset($_POST['post_company'])) {
             </div>
         </div>
     </div>
-
-</div>
 
 </body>
 </html>
