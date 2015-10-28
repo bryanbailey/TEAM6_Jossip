@@ -16,6 +16,7 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $ID;
 
     //get salt
     $saltSQL = "SELECT `salt` FROM `User` WHERE STRCMP(`username`, ?)=0 LIMIT 1";
@@ -45,6 +46,7 @@
         session_start();                    //call at very begining of all pages
         $_SESSION['JobGossipLogin']= "1";   //check this session varible for login
         $_SESSION['user'] = $username;      //session variable holds username
+        $_SESSION['user_id']=$hash;
 
         header("Location: /index.php");    //route back to home
 
