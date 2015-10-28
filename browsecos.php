@@ -32,7 +32,7 @@ include './resources/php/navbar.php';
 <div class = "container">
     <div class="jumbotron">
         <h1>Jossip!</h1>
-        <p>Some words here. <a href="#">A Link.</a></p>
+    <!--    <p>Some words here. <a href="#">A Link.</a></p>  -->
     </div>
 
 
@@ -54,7 +54,7 @@ include './resources/php/navbar.php';
 
     <div class="col-sm-3">
         <div class="list-group">
-            <a href="/Post_company.php"> Post Jobs </a>
+            <a href="./Post_company.php"> Post Jobs </a>
 
         </div>
     </div>
