@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./resources/css/jgStyle.css">
 
-    <!-- General Job Gossip styling -->
+    <!-- General Jossip styling -->
 
 </head>
 <body>
