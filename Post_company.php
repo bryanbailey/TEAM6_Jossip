@@ -1,9 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Praveen G
- * Date: 10/27/2015
- */
+
 session_start();
 
 if( isset($_POST['post_company'])) {
