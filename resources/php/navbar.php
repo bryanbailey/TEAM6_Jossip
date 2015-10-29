@@ -23,15 +23,13 @@
                 <li class="active"><a href="/index.php">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><div class="box">
-                        <div class="container-1">
-                            <span class="icon"><i class="fa fa-search"></i></span>
-                            <input type="search" id="search" placeholder="Job Search..." />
-                        </div>
-                    </div>
-                </li>
-
             </ul>
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

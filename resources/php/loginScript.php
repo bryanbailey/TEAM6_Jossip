@@ -16,7 +16,6 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $ID;
 
     //get salt
     $saltSQL = "SELECT `salt` FROM `User` WHERE STRCMP(`username`, ?)=0 LIMIT 1";
@@ -38,6 +37,7 @@
     $stmt2->bind_param('ss', $username, $hash);
     $stmt2->execute();
     $loginResult = $stmt2->get_result();
+    $userInfo = $loginResult->fetch_assoc();
     $stmt2->close();
 
     //login successfull
@@ -46,7 +46,7 @@
         session_start();                    //call at very begining of all pages
         $_SESSION['JobGossipLogin']= "1";   //check this session varible for login
         $_SESSION['user'] = $username;      //session variable holds username
-        $_SESSION['user_id']=$hash;
+        $_SESSION['user_id'] = $userInfo['user_id'];
 
         header("Location: /index.php");    //route back to home
 
