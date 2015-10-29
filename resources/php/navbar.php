@@ -20,16 +20,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index.php">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/index.php">Home</a></li>
+                <li><a href="/browsecos.php">Companies by Rank</a></li>
             </ul>
-
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-            </form>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -45,9 +38,14 @@
                         ?>
                     </ul>
                 </li>
-
-
             </ul>
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+
         </div><!--/.nav-collapse -->
     </div>
 </nav>

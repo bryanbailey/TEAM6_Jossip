@@ -43,11 +43,11 @@
     <link rel="stylesheet" href="/resources/css/jgStyle.css">
 
     <style type="text/css">
-        ul.ui-autocomplete{
+        ul.ui-autocomplete{ /* company dropdown list */
             background-color: lightgray;
         }
 
-        .companyQuestion{
+        .companyName { /* displaying co name in questions */
             text-decoration: underline;
             font-style: italic;
         }
@@ -63,7 +63,7 @@
                         event.preventDefault();
                         $(this).val(ui.item.label);
                         $("#companyID").val(ui.item.value);
-                        $(".companyQuestion").text(ui.item.label);
+                        $(".companyName").text(ui.item.label);
                         console.log($("#companyID").val());
                     }
             });
@@ -85,7 +85,7 @@
 
     <div class="container">
 
-        <h1 class="page-header">Company Post &nbsp; <small>Review a company</small></h1>
+        <h1 class="page-header">Company Post &nbsp; <small>Review a current or former employer</small></h1>
 
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
@@ -105,9 +105,9 @@
 
                     <div class="form-group">
                         <label for="pos_content">
-                            How did you like working for <span class="companyQuestion">the company</span>?<br />
-                            Would you recommend a career at <span class="companyQuestion">the company</span>?<br />
-                            What worked well at  <span class="companyQuestion">the company</span>?
+                            How did you like working for <span class="companyName">the company</span>?<br />
+                            Would you recommend a career at <span class="companyName">the company</span>?<br />
+                            What worked well at  <span class="companyName">the company</span>?
                         </label>
                         <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
                     </div>

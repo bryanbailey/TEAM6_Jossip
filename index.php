@@ -1,3 +1,8 @@
+<?php
+
+    session_start();
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,24 +12,31 @@
         the navigation within the site. -->
 
     <!-- jquery 2.1.4 -->
-    <script src="./vendors/jquery-2.1.4.min.js"></script>
+    <script src="/vendors/jquery-2.1.4.min.js"></script>
 
     <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
-    <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 
     <!-- general Joossip styling -->
+    <link rel="stylesheet" type="text/css" href="/resources/css/jgStyle.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
 
-    <link rel="stylesheet" type="text/css" href="./resources/css/jgStyle.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/css/jossstyle.css" />
+    <script>
+        $(document).ready(function() {
+
+            /* make navbar, sidebar list link display as active for current page */
+            $("#navbar a[href=\"/index.php\"]").parent("li").addClass("active");
+
+        });
+    </script>
 
 </head>
 
 <body>
 
 <?php
-session_start();
-include './resources/php/navbar.php';
+    include './resources/php/navbar.php';
 ?>
 
 <div class = "container">
@@ -34,15 +46,9 @@ include './resources/php/navbar.php';
     </div>
 
     <div class="col-sm-3">
-        <div class="list-group">
-            <?php
-            if( !isset( $_SESSION['JobGossipLogin'] ) ) {
-                echo "<a class=\"list-group-item\" href=\"./login.php\">Login</a>";
-            }
-            ?>
-            <a class="list-group-item" href="./register.php">New user? Create an account by clicking here</a>
-            <a class="list-group-item" href="./browsecos.php">Browse company rankings</a>
-        </div>
+        <?php
+            include '/resources/php/sidebarList.php';
+        ?>
     </div>
 
     <!-- The "main" is where the majority of the php is going to take place, so look here on each page if you are looking for placement -bb -->

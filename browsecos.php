@@ -26,9 +26,19 @@
         <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
         <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/resources/css/jgStyle.css">
 
         <!-- General Job Gossip styling -->
+        <link rel="stylesheet" href="/resources/css/jgStyle.css">
+
+        <script>
+            $(document).ready(function() {
+
+                /* make navbar, sidebar list link display as active for current page */
+                $("#navbar a[href=\"/browsecos.php\"]").parent("li").addClass("active");
+                $("#sidebarList a[href=\"/browsecos.php\"]").addClass("active");
+
+            });
+        </script>
 
 
     </head>
@@ -41,15 +51,9 @@
         <div class = "container">
 
             <div class="col-sm-3">
-                <div class="list-group">
-                    <?php
-                    if( !isset( $_SESSION['JobGossipLogin'] ) ) {
-                        echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
-                    }
-                    ?>
-                    <a class="list-group-item" href="/register.php">New user? Create an account by clicking here</a>
-                    <a class="list-group-item" href="/browsecos.php">Browse company rankings</a>
-                </div>
+                <?php
+                    include '/resources/php/sidebarList.php';
+                ?>
             </div>
 
             <div class = "col-sm-9">
