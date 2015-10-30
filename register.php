@@ -35,6 +35,46 @@ if( isset($_POST['register'])) {
 
     </style>
 
+    <script>
+        $(document).ready(function(){
+
+            $("#register").click(function(){
+
+                if( !$("#first_name").val() || !$("#first_name").val() ){
+                    //no name!
+                }else {
+
+                    var registrationData = {};
+                    registrationData["first_name"] = $("#first_name").val();
+                    registrationData["last_name"] = $("#last_name").val();
+                    registrationData["email"] = $("#email").val();
+                    registrationData["username"] = $("#username").val();
+                    registrationData["password"] = $("#password").val();
+
+                    $.ajax({
+                        url: "/resources/php/registerScript.php",
+                        type: "POST",
+                        data: registrationData,
+                        success:
+                            function(queryResult){
+                                if(queryResult == 1){
+                                    $("body>.container").prepend('<div class="alert alert-success">User Created!</div>');
+                                }
+                            }
+                    });
+
+                }
+            });
+
+            /*  check if username exists in DB already
+            $("#username").change(function(){
+                $.post("", {}, function(){});
+            });
+            */
+
+        });
+    </script>
+
 </head>
 
 <body>
@@ -42,34 +82,6 @@ if( isset($_POST['register'])) {
     include './resources/php/navbar.php';
 ?>
 
-
-
-<?php
-if( isset($_POST['register'])) {
-
-    if( !isset($_POST['first_name']) || $_POST['first_name'] == ""  ){
-        echo '<div class="alert alert-warning text-center">First Name Missing!</div>';
-    }
-    if( !isset($_POST['last_name']) || $_POST['last_name'] == ""  ){
-        echo '<div class="alert alert-warning text-center">Last Name Missing!</div>';
-    }
-    if( !isset($_POST['username']) || $_POST['username'] == ""  ){
-        echo '<div class="alert alert-warning text-center">Username Missing!</div>';
-    }
-
-    if( !isset($_POST['password']) || $_POST['password'] == ""  ){
-        echo '<div class="alert alert-warning text-center">Password Missing!</div>';
-    }
-    if( !isset($_POST['confirmPassword']) || $_POST['confirmPassword'] == ""  ){
-        echo '<div class="alert alert-warning text-center">Confirm Password Missing!</div>';
-    }
-
-    if( $_POST['password'] !== $_POST['confirmPassword'] ){
-        echo '<div class="alert alert-warning text-center">Passwords Do Not Match!</div>';
-    }
-
-}
-?>
 
 <div class="container">
 
@@ -80,42 +92,42 @@ if( isset($_POST['register'])) {
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
 
-                <form method="POST" action="./register.php">
+                <!--<form method="POST" action="./register.php">-->
 
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         <label>Name - First, Last</label>
                         <div class="row">
-                            <div class="col-sm-6"><input type="text" class="form-control" name="first_name" /></div>
-                            <div class="col-sm-6"><input type="text" class="form-control" name="last_name" /></div>
+                            <div class="col-sm-6"><input type="text" class="form-control" name="first_name" id="first_name" /></div>
+                            <div class="col-sm-6"><input type="text" class="form-control" name="last_name" id="last_name" /></div>
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         <label for="email">Email Address</label>
-                        <input type="text" class="form-control" name="email" placeholder="Email Address" />
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Email Address" />
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" />
+                        <input type="text" class="form-control" name="username" id="username" />
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password" />
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                         <label for="password">Confirm Password</label>
                         <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" />
                     </div>
 
                     <br />
                     <div class="form-group">
-                        <button type="submit" class="form-control btn btn-primary btn-block" name="register" >Register</button>
+                        <button type="button" class="form-control btn btn-primary btn-block" name="register" id="register" >Register</button>
                     </div>
 
-                </form>
+                <!--</form>-->
 
             </div>
         </div>

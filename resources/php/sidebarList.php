@@ -9,9 +9,9 @@
 
 <div id="sidebarList" class="list-group">
     <?php
-    if( !isset( $_SESSION['JobGossipLogin'] ) ) {
-        echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
-    }
+        if( !isset( $_SESSION['JobGossipLogin'] ) ) {
+            echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
+        }
     ?>
     <a class="list-group-item" href="/register.php">New user? Create an account</a>
     <a class="list-group-item" href="/browsecos.php">Browse company rankings</a>

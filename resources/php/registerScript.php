@@ -22,14 +22,15 @@
             $_POST['email'],
             $salt,
             $hash );
-        $stmt->execute();
+        $queryResult = $stmt->execute();
         $stmt->close();
 
         $mysqli->close();
 
-        //header("Location: ./index.php");
+        echo $queryResult;
 
-    } catch (\Exception $e) {
+
+    } catch (Exception $e) {
         echo $e->getMessage(), PHP_EOL;
     }
 
