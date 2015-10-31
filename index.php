@@ -3,7 +3,7 @@
     session_start();
 
 ?>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Jossip home page</title>
@@ -41,8 +41,8 @@
 
 <div class = "container">
     <div class="jumbotron">
-        <h1>Jossip!</h1>
-        <!--        <p>Some words here. <a href="#">A Link.</a></p>  -->
+        <h1 style="color:red">Jossip!</h1>
+        <p>Where jobs and gossip meet.</p>
     </div>
 
     <div class="col-sm-3">

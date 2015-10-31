@@ -85,7 +85,7 @@
 
     <div class="container">
 
-        <h1 class="page-header">Company Post &nbsp; <small>Review a current or former employer</small></h1>
+        <h1 class="page-header">Company / job post &nbsp; <small>Review a current or former position</small></h1>
 
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">

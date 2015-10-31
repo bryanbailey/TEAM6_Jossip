@@ -132,7 +132,6 @@ if( isset($_POST['register'])) {
             </div>
         </div>
     </div>
-
 </div>
 
 </body>

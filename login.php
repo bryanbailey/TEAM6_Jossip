@@ -36,15 +36,11 @@ include '/resources/php/navbar.php';
 
 <div class="container">
 
-    <div class="jumbotron">
-        <h1>Jossip!</h1>
-        <!--        <p>Some words here. <a href="#">A Link.</a></p>  -->
-    </div>
+    <h1 class="page-header">Jossip login</h1>
 
     <div class="col-sm-3">
 
         <div class="list-group">
-            <a class="list-group-item" href="/index.php">Home</a>
             <a class="list-group-item" href="/register.php">New user? Create an account</a>
         </div>
 
