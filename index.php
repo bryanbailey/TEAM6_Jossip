@@ -42,7 +42,7 @@
 <div class = "container">
     <div class="jumbotron">
         <h1 style="color:red">Jossip!</h1>
-        <p>Where jobs and gossip meet.</p>
+        <p>Where <i><span style="color:mediumpurple">jo</span>bs</i> and <i>go<span style="color:mediumpurple">ssip</span></i> meet.</p>
     </div>
 
     <div class="col-sm-3">
