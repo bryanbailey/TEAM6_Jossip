@@ -85,7 +85,7 @@ if( isset($_POST['register'])) {
 
 <div class="container">
 
-    <h1 class="page-header">New user registration</h1>
+    <h1 class="page-header">User registration</h1>
 
     <div class="panel panel-dark">
 <!--        <div class="panel-heading"><h3>User Information</h3></div> -->
