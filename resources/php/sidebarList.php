@@ -16,7 +16,7 @@
     <a class="list-group-item" href="/register.php">New user? Create an account</a>
     <a class="list-group-item" href="/browsecos.php">Browse company rankings</a>
     <a class="list-group-item" href="/createCompanyPost.php">
-        Rate a Company
+        Rate a company
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
