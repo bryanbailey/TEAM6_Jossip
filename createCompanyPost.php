@@ -99,21 +99,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="post_title">Give your post a title/subject line</label>
-                        <input type="text" class="form-control" name="post_title" id="post_title" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pos_content">
-                            How did you like working for <span class="companyName">the company</span>?<br />
-                            Would you recommend a career at <span class="companyName">the company</span>?<br />
-                            What worked well at  <span class="companyName">the company</span>?
-                        </label>
-                        <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rating">Rating: &nbsp; </label>
+                        <label for="rating">Company rating: &nbsp; </label>
                         <label class="radio-inline">
                             <input type="radio" name="rating" value="1" /> 1
                         </label>
@@ -130,6 +116,43 @@
                             <input type="radio" name="rating" value="5" /> 5
                         </label>
                     </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="post_title">Position / job title</label>
+                        <input type="text" class="form-control" name="post_title" id="post_title" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pos_content">
+                            How did you like working for <span class="companyName">the company</span>?<br />
+                            Would you recommend this position at <span class="companyName">the company</span>?<br />
+                            What worked well at  <span class="companyName">the company</span>?
+                        </label>
+                        <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Position rating: &nbsp; </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rating" value="1" /> 1
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rating" value="2" /> 2
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rating" value="3" /> 3
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rating" value="4" /> 4
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rating" value="5" /> 5
+                        </label>
+                    </div>
+
+                    <br>
 
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
