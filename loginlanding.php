@@ -26,26 +26,16 @@ include './resources/php/navbar.php';
 ?>
 <div class = "container">
 
+    <h1 class="page-header">Welcome to Jossip!</h1>
 
-    <!-- <div id = "header">
-        <h1>Jossip</h1>
-    </div> -->
-    <div class="jumbotron">
-        <h1>Jossip!</h1>
-        <p>Some words here. <a href="#">A Link.</a></p>
-    </div>
-
-    <div id = "nav">
-
-        <!-- <ul>
-            <li><a class="selected" href="index.php">Home</a></li><br>
-        </ul> -->
-
+    <div class="col-sm-3">
+        <?php
+        include '/resources/php/sidebarList.php';
+        ?>
     </div>
 
     <div id = "main">
-        <h3>Welcome to Jossip</h3>
-        <p>You've successfully created an account with Jossip!</p><br>
+        <h3>You've successfully logged in to Jossip!</h3>
         <p>Would you like to:</p>
         <ol>
             <li><a href="#">Change your account details?</a></li>
