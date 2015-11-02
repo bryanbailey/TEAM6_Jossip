@@ -115,26 +115,16 @@
                         <input type="hidden" name="companyID" id="companyID" />
                     </div>
 
-                    <div class="form-group">
-                        <label for="rating">Company rating: &nbsp; </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="1" /> 1
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="2" /> 2
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="3" /> 3
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="4" /> 4
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="5" /> 5
-                        </label>
-                    </div>
+                    <fieldset class="rating">
+                        <span>Please rate the company:</span>
+                        <input type="radio" id="star5" name="comprating" value="5" /><label for="star5" title="Best">5 stars</label>
+                        <input type="radio" id="star4" name="comprating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="star3" name="comprating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                        <input type="radio" id="star2" name="comprating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                        <input type="radio" id="star1" name="comprating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
+                    </fieldset>
 
-                    <br>
+                    <br><br><br>
 
                     <div class="form-group">
                         <label for="post_title">Position / job title</label>
@@ -149,27 +139,15 @@
                         </label>
                         <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
                     </div>
-
-                    <div class="form-group">
-                        <label for="rating">Position rating: &nbsp; </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="1" /> 1
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="2" /> 2
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="3" /> 3
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="4" /> 4
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="rating" value="5" /> 5
-                        </label>
-                    </div>
-
-                    <br>
+                    <fieldset class="rating">
+                        <span>Please rate the position:</span>
+                        <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
+                        <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                        <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                        <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
+                    </fieldset>
+                    <br><br><br>
 
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
