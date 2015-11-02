@@ -85,12 +85,12 @@
                 <h2 class="form-signin-heading">Please sign in</h2>
 
                 <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Username</label><br>
+                    <label for="inputEmail" class="sr-only">Username</label>
                     <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" />
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword" class="sr-only">Password</label><br>
+                    <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required" />
                 </div>
 
