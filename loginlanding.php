@@ -34,12 +34,24 @@ include './resources/php/navbar.php';
         ?>
     </div>
 
+    <aside id="modal">
+        <header>
+            <h3>You have already posted a review</h3>
+        </header>
+        <section>
+            Is this posting for a company you have already reviewed?
+        </section>
+        <footer class="cf">
+            <a href="#" class="btn"> Yes </a>
+            <a href="/createCompanyPost.php" class="btn"> No </a>
+        </footer>
+    </aside>
     <div id = "main">
         <h3>You've successfully logged in to Jossip!</h3>
         <p>Would you like to:</p>
         <ol>
-            <li><a href="#">Change your account details?</a></li>
-            <li><a href="browsecos.php">Post and rate a position/company?</a></li>
+            <li><a href="register.php">Change your account details?</a></li>
+            <li><a href="#modal">Post and rate a position/company?</a></li>
         </ol>
 
     </div>
