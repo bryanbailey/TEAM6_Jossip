@@ -56,6 +56,9 @@
     <script>
         $(document).ready(function() {
 
+            $(".modal").modal();
+
+
             $("#autoC").autocomplete({
                 source: <?php echo $companyList; ?>,
                 select:
@@ -82,6 +85,20 @@
             }
         }
     ?>
+
+    <div class="modal fade in" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Are you posting about the same company as your last post?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal">No</button>
+                    <button class="btn btn-primary">Yes!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
 
