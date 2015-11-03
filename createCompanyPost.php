@@ -6,10 +6,6 @@
         require '/resources/php/createCompanyPostScript.php';
 
     }
-
-echo $_SESSION['user'];
-echo $_SESSION['user_id'];
-
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $companyListSQL = "SELECT `company_id` AS 'value', `company_name` AS 'label' FROM `Company` WHERE 1";
