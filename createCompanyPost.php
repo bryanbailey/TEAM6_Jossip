@@ -68,7 +68,6 @@
 
             $(".modal").modal();
 
-
             $("#autoC").autocomplete({
                 source: <?php echo $companyList; ?>,
                 select:
