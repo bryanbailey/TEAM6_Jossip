@@ -24,7 +24,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/index.php">Home</a></li>
-                <li><a href="/browsecos.php">Companies by Rank</a></li>
+                <li><a href="/browsecos.php">Companies by current rank</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
