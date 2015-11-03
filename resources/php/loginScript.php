@@ -38,7 +38,7 @@
     $c = $stmt2->execute();
     $loginResult = $stmt2->get_result();
     $userInfo = $loginResult->fetch_assoc();
-    $stmt2->close();
+
 
     //login successfull
     if( $loginResult->num_rows == 1 ){
@@ -47,6 +47,7 @@
         $_SESSION['JobGossipLogin']= "1";   //check this session varible for login
         $_SESSION['user'] = $username;      //session variable holds username
         $_SESSION['user_id'] = $userInfo['user_id'];
+        $stmt2->close();
 
         header("Location: /loginlanding.php");    //route back to home
 

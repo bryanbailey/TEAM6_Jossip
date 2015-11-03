@@ -14,8 +14,8 @@
         }
     ?>
     <a class="list-group-item" href="/register.php">New user? Create an account</a>
-    <a class="list-group-item" href="/browsecos.php">Browse company rankings</a>
-    <a class="list-group-item" href="/createCompanyPost.php">
+    <a class="list-group-item" href="/login.php">Browse company rankings</a>
+    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createCompanyPost.php"' : 'href="/login.php"'); ?> >
         Rate a company
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>

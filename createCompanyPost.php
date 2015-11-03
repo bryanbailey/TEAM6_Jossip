@@ -7,6 +7,9 @@
 
     }
 
+echo $_SESSION['user'];
+echo $_SESSION['user_id'];
+
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $companyListSQL = "SELECT `company_id` AS 'value', `company_name` AS 'label' FROM `Company` WHERE 1";
@@ -115,14 +118,14 @@
                         <input type="hidden" name="companyID" id="companyID" />
                     </div>
 
-                    <fieldset class="rating">
+                    <div class="rating">
                         <span>Please rate the company:</span>
-                        <input type="radio" id="star5" name="comprating" value="5" /><label for="star5" title="Best">5 stars</label>
-                        <input type="radio" id="star4" name="comprating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                        <input type="radio" id="star3" name="comprating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
-                        <input type="radio" id="star2" name="comprating" value="2" /><label for="star2" title="Not great">2 stars</label>
-                        <input type="radio" id="star1" name="comprating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
-                    </fieldset>
+                        <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
+                        <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                        <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                        <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
+                    </div>
 
                     <br><br><br>
 
@@ -139,15 +142,6 @@
                         </label>
                         <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
                     </div>
-                    <fieldset class="rating">
-                        <span>Please rate the position:</span>
-                        <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
-                        <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                        <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
-                        <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
-                        <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
-                    </fieldset>
-                    <br><br><br>
 
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
