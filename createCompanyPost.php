@@ -7,9 +7,6 @@
 
     }
 
-echo $_SESSION['user'];
-echo $_SESSION['user_id'];
-
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $companyListSQL = "SELECT `company_id` AS 'value', `company_name` AS 'label' FROM `Company` WHERE 1";
@@ -19,6 +16,10 @@ echo $_SESSION['user_id'];
             $companyArray[] = $row;
         }
         $companyList = json_encode($companyArray);
+
+        $userLastCompanySQL = "SELECT `` FROM `company_post` ";
+
+
     } catch (\Exception $e) {
         echo $e->getMessage(), PHP_EOL;
     }
@@ -54,6 +55,12 @@ echo $_SESSION['user_id'];
             text-decoration: underline;
             font-style: italic;
         }
+
+        .page-divide{
+            margin-top: 80px;
+            margin-bottom: 50px;
+            width:100%;
+        }
     </style>
 
     <script>
@@ -73,6 +80,8 @@ echo $_SESSION['user_id'];
                         console.log($("#companyID").val());
                     }
             });
+
+
 
         });
     </script>
@@ -120,14 +129,14 @@ echo $_SESSION['user_id'];
 
                     <div class="rating">
                         <span>Please rate the company:</span>
-                        <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
-                        <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                        <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
-                        <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
-                        <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
+                        <input type="radio" id="star5" name="corating" value="5" /><label for="star5" title="Best">5 stars</label>
+                        <input type="radio" id="star4" name="corating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="star3" name="corating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                        <input type="radio" id="star2" name="corating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                        <input type="radio" id="star1" name="corating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
                     </div>
 
-                    <br><br><br>
+                    <hr class="page-divide" />
 
                     <div class="form-group">
                         <label for="post_title">Position / job title</label>
@@ -141,6 +150,15 @@ echo $_SESSION['user_id'];
                             What worked well at  <span class="companyName">the company</span>?
                         </label>
                         <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
+                    </div>
+
+                    <div class="rating">
+                        <span>Please rate the position:</span>
+                        <input type="radio" id="star5" name="posrating" value="5" /><label for="star5" title="Best">5 stars</label>
+                        <input type="radio" id="star4" name="posrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                        <input type="radio" id="star3" name="posrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                        <input type="radio" id="star2" name="posrating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                        <input type="radio" id="star1" name="posrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
                     </div>
 
                     <div class="form-group">
