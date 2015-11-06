@@ -63,7 +63,7 @@
                     while( $company = $companyListQuery->fetch_assoc() ){
                         echo '
                             <div class="panel panel-default">
-                                <div class="panel-heading">',$company['company_name'],'<span class="pull-right">',$company['rating'],'</span></div>
+                                <div class="panel-heading"><b>',$company['company_name'],'</b><span class="pull-right">Jossip rating: <b>',$company['rating'],' stars</b></span></div>
                                 <div class="panel-body">
                                     ',$company['company_description'],'
                                 </div>
