@@ -95,21 +95,21 @@ if( isset($_POST['post_company']) ){
 
                 <div class="form-group">
                     <label for="post_title">Company</label>
-<!--                    <input id="autoC" class="form-control" placeholder="Start typing.." />
+                    <input id="autoC" class="form-control" placeholder="Start typing.." />
                     <input type="hidden" name="companyID" id="companyID" />
                 </div>
 
-                <div class="rating">
-                    <span>Please rate the company:</span>
-                    <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
-                    <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                    <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
-                    <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
-                    <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
-                </div>
+                <!--                <div class="rating">
+                                    <span>Please rate the company:</span>
+                                    <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
+                                    <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                                    <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                                    <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                                    <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
+                                </div>
 
-                <br><br><br>
--->
+                                <br><br><br>
+                -->
                 <div class="form-group">
                     <label for="post_title">Position / job title</label>
                     <input type="text" class="form-control" name="post_title" id="post_title" />
