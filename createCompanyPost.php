@@ -27,8 +27,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Praveen Kumar G">
-    <title>New User Registration</title>
+    <title>Create company post</title>
     <!-- jquery 2.1.4 -->
     <script src="/vendors/jquery-2.1.4.min.js"></script>
     <!-- jQueryUI 1.11.4 JS, CSS -->
@@ -93,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal">No</button>
-                    <button class="btn btn-primary">Yes!</button>
+                    <button class="btn btn-primary">Yes</button>
                 </div>
             </div>
         </div>
@@ -140,7 +139,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
+                        <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" id="post_company">Post</button>
                     </div>
 
                 </form>
