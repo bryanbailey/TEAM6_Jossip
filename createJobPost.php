@@ -1,3 +1,9 @@
+<!-- I just copied the createCompanyPost page for the sake of making this page - this should be the landing
+page for the "Yes" answer in the modal box on that page; this page is for a user who has an existing post with a company
+and should select the company from a drowpdown list (marked below) and fill in the position information the same as in
+the createCompanyPost page. -->
+
+
 <?php
 
 session_start();
@@ -51,27 +57,6 @@ try {
         }
     </style>
 
-    <script>
-        $(document).ready(function() {
-
-            $(".modal").modal();
-
-
-            $("#autoC").autocomplete({
-                source: <?php echo $companyList; ?>,
-                select:
-                    function(event, ui){
-                        event.preventDefault();
-                        $(this).val(ui.item.label);
-                        $("#companyID").val(ui.item.value);
-                        $(".companyName").text(ui.item.label);
-                        console.log($("#companyID").val());
-                    }
-            });
-
-        });
-    </script>
-
 </head>
 <body>
 <?php
@@ -94,22 +79,14 @@ if( isset($_POST['post_company']) ){
 
 
                 <div class="form-group">
-                    <label for="post_title">Company</label>
-                    <input id="autoC" class="form-control" placeholder="Start typing.." />
-                    <input type="hidden" name="companyID" id="companyID" />
+                    <label for="post_title">Company</label><br>
+                    <select id="autoC" class="form-control" name = "companyID" id = "companyID"></select>
+
+<!--    The preceding should present as a pulldown list of the companies associated with the logged-in user. The rest of the page is the
+        new position that user holds and it should be posted to the database in association with that user and the company.
+-->
                 </div>
 
-                <!--                <div class="rating">
-                                    <span>Please rate the company:</span>
-                                    <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
-                                    <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                                    <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
-                                    <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
-                                    <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
-                                </div>
-
-                                <br><br><br>
-                -->
                 <div class="form-group">
                     <label for="post_title">Position / job title</label>
                     <input type="text" class="form-control" name="post_title" id="post_title" />
