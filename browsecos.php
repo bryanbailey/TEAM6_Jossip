@@ -50,6 +50,8 @@
 
         <div class = "container">
 
+            <h1 class="page-header">Top-ranked trending companies</h1>
+
             <div class="col-sm-3">
                 <?php
                     include '/resources/php/sidebarList.php';
@@ -57,7 +59,6 @@
             </div>
 
             <div class = "col-sm-9">
-                <h3>Top-ranked trending companies</h3>
                 <?php
 
                     while( $company = $companyListQuery->fetch_assoc() ){
