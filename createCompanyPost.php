@@ -88,7 +88,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    Are you posting about the same company as your last post?
+                    Are you posting a position with the same company as your last post?
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal">No</button>
