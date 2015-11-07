@@ -92,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal">No</button>
-                    <button class="btn btn-primary">Yes</button>
+                    <button class="btn btn-primary">Yes</button> <!-- THIS SHOULD DUMP YOU ONTO THE CREATEJOBPOST PAGE //BB -->
                 </div>
             </div>
         </div>
