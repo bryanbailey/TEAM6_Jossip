@@ -11,9 +11,10 @@
     <?php
         if( !isset( $_SESSION['JobGossipLogin'] ) ) {
             echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
+            echo "<a class=\"list-group-item\" href=\"/register.php\">New user? Create an account</a>";
         }
     ?>
-    <a class="list-group-item" href="/register.php">New user? Create an account</a>
+
     <a class="list-group-item" href="/browsecos.php">Browse companies by rank  </a>
 
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createCompanyPost.php"' : 'href="/login.php"'); ?> >
