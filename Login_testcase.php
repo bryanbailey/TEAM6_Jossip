@@ -13,5 +13,4 @@
 $_POST['username']= 'test';
 $_POST['password'] = '1234';
 include '/resources/php/loginScript.php';
-
 ?>
