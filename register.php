@@ -7,7 +7,6 @@ if( isset($_POST['register'])) {
 
     header("Location: /login.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -19,7 +19,7 @@
             <ul class="nav navbar-brand">
                 <li style="color:red">Jossip!</li>
             </ul>
-<!--            <a class="navbar-brand" href="/index.php">Jossip!</a>       -->
+            <!--            <a class="navbar-brand" href="/index.php">Jossip!</a>       -->
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -42,13 +42,13 @@
                     </ul>
                 </li>
             </ul>
-<!--
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-            </form>
--->
+            <!--
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+            -->
         </div><!--/.nav-collapse -->
     </div>
 </nav>

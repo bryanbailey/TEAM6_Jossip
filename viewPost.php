@@ -3,16 +3,11 @@
 session_start();
 
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-
-$companyListSQL = "  SELECT `company_id`, `company_name`,`company_description`, IFNULL(TRUNCATE(AVG(`company_rating`),1), '-') AS 'rating'
-                        FROM `company`
-                            LEFT JOIN `Company_Post` ON `Company`.`company_id` = `Company_Post`.`fk_company_id`
-                        WHERE 1
-                        GROUP BY `company_id`
-                        ORDER BY `rating` DESC
-                        ";
-$companyListQuery = $mysqli->query($companyListSQL);
-
+$postListSQL = "  SELECT `po`.`position_title`,`po`.`position_description`,`c`.`company_name`,`p`.`post_title`,`p`.`post_content`,IFNULL(`p`.`position_rating`, '-') AS 'rating'
+                    FROM `company` c,`position_post` p,`position` po
+                    WHERE `c`.`company_id`=`po`.`fk_company_id` AND `po`.`position_id`=`p`.`fk_position_id`
+                      ";
+$postListSQLQuery = $mysqli->query($postListSQL);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +45,7 @@ include '/resources/php/navbar.php';
 
 <div class = "container">
 
-    <h1 class="page-header">(Position post selected from search results)</h1> <!-- POSITION TITLE SHOULD GO HERE FROM SEARCH PAGE SELECTION -->
+    <h1 class="page-header">(Post results from existing posters)</h1>
 
     <div class="col-sm-3">
         <?php
@@ -61,32 +56,21 @@ include '/resources/php/navbar.php';
     <div class = "col-sm-9">
         <?php
 
+        while( $post = $postListSQLQuery->fetch_assoc() ){
             echo '
-                <div class="panel panel-default">
-                    <div class="panel-heading"><b>Company name</b><span class="pull-right">Jossip rating: <b>X.X stars</b></span></div>
-                    <div class="panel-body">
-                        Company description goes here
-                    </div>
-                    <div class="panel-heading"><b>Position title</b></div>
-                    <div class="panel-body">
-                        Position description / comments go here
-                    </div>
-                    <div class="panel-heading" style="font-size:small"><i>Submitted by (poster user name)</i><span class="pull-right">Jossip rating: <b>X.X stars</b></span></div>
+                               <div class="panel panel-default">
+                                   <div class="panel-heading">Comapny Name : <b>',$post['company_name'],'</b><span class="pull-right">Position Title : <b>',$post['position_title'],'</b></span></div>
 
-                </div>
+                                   <div class="panel-body"><b>Nature of work invlolved:</b>
+                                       ',$post['position_description'],'<span class="pull-right">Jossip rating: <b>',$post['rating'],' stars</b></span>
+                                   </div>
+                                   <div class="panel-body"><b>About the work:</b>
+                                       ',$post['post_content'],'
+                                   </div>
 
-
-<!-- THE FOLLOWING RATING IS FOR THE USER TO RATE THE POST, WHICH IS APPLIED TO THE POSTER -->
-                <div class="rating">
-                    <span><br><b>Please rate this post</b> as to how helpful it has been to you.<br></span>
-                    <span>(1 star = less helpful, 5 stars = very helpful):</span>
-                    <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Very helpful">5 stars</label>
-                    <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                    <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
-                    <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
-                    <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
-                </div>
-            ';
+                               </div>
+                           ';
+        }
         ?>
     </div>
 

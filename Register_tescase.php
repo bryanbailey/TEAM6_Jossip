@@ -2,9 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Praveen
- * Date: 11/6/2015
- * Time: 5:45 PM
+
  */
 $_POST['username']='PK1';
 $_POST['first_name']='Praveen';

@@ -81,7 +81,10 @@
         </div>
 
         <div class="col-sm-offset-1 col-sm-4">
+
+
             <form class="form-signin" method="POST" action="/resources/php/loginScript.php">
+
                 <h2 class="form-signin-heading">Please sign in</h2>
 
                 <div class="form-group">
