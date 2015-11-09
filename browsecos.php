@@ -13,7 +13,6 @@
                         ";
     $companyListQuery = $mysqli->query($companyListSQL);
 
-echo $companyListSQL;
 
 ?>
 <!DOCTYPE html>
