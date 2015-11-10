@@ -59,7 +59,7 @@ include '/resources/php/navbar.php';
         while( $post = $postListSQLQuery->fetch_assoc() ){
             echo '
                                <div class="panel panel-default">
-                                   <div class="panel-heading">Comapny Name : <b>',$post['company_name'],'</b><span class="pull-right">Position Title : <b>',$post['position_title'],'</b></span></div>
+                                   <div class="panel-heading">Company Name : <b>',$post['company_name'],'</b><span class="pull-right">Position Title : <b>',$post['position_title'],'</b></span></div>
 
                                    <div class="panel-body"><b>Nature of work invlolved:</b>
                                        ',$post['position_description'],'<span class="pull-right">Jossip rating: <b>',$post['rating'],' stars</b></span>
