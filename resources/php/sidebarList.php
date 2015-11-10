@@ -11,15 +11,26 @@
     <?php
         if( !isset( $_SESSION['JobGossipLogin'] ) ) {
             echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
+            echo "<a class=\"list-group-item\" href=\"/register.php\">New user? Create an account</a>";
         }
     ?>
-    <a class="list-group-item" href="/register.php">New user? Create an account</a>
-    <a class="list-group-item" href="/login.php">Browse company rankings</a>
+
+    <a class="list-group-item" href="/browsecos.php">Browse companies by rank  </a>
+
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createCompanyPost.php"' : 'href="/login.php"'); ?> >
-        Rate a company
+        Post a company / position
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
     </a>
+<!--    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/viewpost.php"' : 'href="/login.php"'); ?> >View and rank posts
+        <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
+        <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
+        <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
+    </a> -->
+    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/searchPosts.php"' : 'href="/login.php"'); ?> >
+        Search posts
+    </a>
+
 
 </div>
