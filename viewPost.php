@@ -45,6 +45,7 @@ include '/resources/php/navbar.php';
 
 <div class = "container">
 
+
     <h1 class="page-header">(Post results from existing posters)</h1>
 
     <div class="col-sm-3">
@@ -58,18 +59,23 @@ include '/resources/php/navbar.php';
 
         while( $post = $postListSQLQuery->fetch_assoc() ){
             echo '
-                               <div class="panel panel-default">
-                                   <div class="panel-heading">Company Name : <b>',$post['company_name'],'</b><span class="pull-right">Position Title : <b>',$post['position_title'],'</b></span></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Company Name : <b>',$post['company_name'],'</b><span class="pull-right">Jossip rating: <b>',$post['rating'],' stars</b></span></div>
 
-                                   <div class="panel-body"><b>Nature of work invlolved:</b>
-                                       ',$post['position_description'],'<span class="pull-right">Jossip rating: <b>',$post['rating'],' stars</b></span>
-                                   </div>
-                                   <div class="panel-body"><b>About the work:</b>
-                                       ',$post['post_content'],'
-                                   </div>
+                    <div class="panel-body"><b>Position Title : </b>',$post['position_title'],'</b></span>
 
-                               </div>
-                           ';
+                        <div class="panel-body"><b>Nature of work invlolved:</b>
+                             ',$post['position_description'],'</span>
+                        </div>
+                           <div class="panel-body"><b>About the work:</b>
+                              ',$post['post_content'],'
+                           </div>
+                    <div class="panel-heading" style="font-size:small"><i></b>(Poster of <b>',$post['company_name'],')</b><span class="pull-right">Poster rating: <b>',$post['rating'],' stars</b></i></span></div>
+
+
+
+                    </div>
+             ';
         }
         ?>
     </div>
