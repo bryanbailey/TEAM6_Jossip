@@ -14,13 +14,14 @@ if( isset($_POST['post_company'])) {
 }
 try {
     $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-    $companyListSQL = "SELECT `company_id` AS 'value', `company_name` AS 'label' FROM `Company` WHERE 1";
+    $companyListSQL = " SELECT `company_id`, `company_name`
+                        FROM `Company`
+                            LEFT JOIN `Employment_History`
+                            ON `Company`.`company_id` = `Employment_History`.`fk_company_id`
+                        WHERE `fk_user_id` = ".$_SESSION['user_id'];
     $companyListQuery = $mysqli->query($companyListSQL);
-    $companyArray = array();
-    while( $row = $companyListQuery->fetch_assoc() ){
-        $companyArray[] = $row;
-    }
-    $companyList = json_encode($companyArray);
+    $companyListCount = $companyListQuery->num_rows;
+    $mysqli->close();
 } catch (\Exception $e) {
     echo $e->getMessage(), PHP_EOL;
 }
@@ -47,10 +48,6 @@ try {
     <link rel="stylesheet" href="/resources/css/jgStyle.css">
 
     <style type="text/css">
-        ul.ui-autocomplete{ /* company dropdown list */
-            background-color: lightgray;
-        }
-
         .companyName { /* displaying co name in questions */
             text-decoration: underline;
             font-style: italic;
@@ -75,37 +72,50 @@ if( isset($_POST['post_company']) ){
 
     <div class="panel-body">
         <div class="col-sm-6 col-sm-offset-3">
-            <form method="POST" action="/createCompanyPost.php">
 
-
-                <div class="form-group">
-                    <label for="post_title">Company</label><br>
-                    <select id="autoC" class="form-control" name = "companyID" id = "companyID"></select>
+            <div class="form-group">
+                <label for="post_title">Company</label><br>
+                <select id="autoC" class="form-control" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?> >
+                    <?php
+                        while( $company = $companyListQuery->fetch_assoc() ){
+                            echo '<option value="',$company['company_id'],'">',$company['company_name'],'</option>';
+                        }
+                    ?>
+                </select>
+                <?php
+                    if($companyListCount < 1){
+                        echo '<div class="alert alert-danger text-center">
+                                <strong>No employment history!</strong>
+                                <a href="/login.php">Fill out your profile!</a>
+                               </div>';
+                    }
+                ?>
 
 <!--    The preceding should present as a pulldown list of the companies associated with the logged-in user. The rest of the page is the
-        new position that user holds and it should be posted to the database in association with that user and the company.
+    new position that user holds and it should be posted to the database in association with that user and the company.
 -->
-                </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="post_title">Position / job title</label>
-                    <input type="text" class="form-control" name="post_title" id="post_title" />
-                </div>
+            <div class="form-group">
+                <label for="post_title">Position / job title</label>
+                <input type="text" class="form-control" name="post_title" id="post_title" />
+            </div>
 
-                <div class="form-group">
-                    <label for="pos_content">
-                        How did you like working for <span class="companyName">the company</span>?<br />
-                        Would you recommend this position at <span class="companyName">the company</span>?<br />
-                        What worked well at  <span class="companyName">the company</span>?
-                    </label>
-                    <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
-                </div>
+            <div class="form-group">
+                <label for="pos_content">
+                    How did you like working for <span class="companyName">the company</span>?<br />
+                    Would you recommend this position at <span class="companyName">the company</span>?<br />
+                    What worked well at  <span class="companyName">the company</span>?
+                </label>
+                <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
+            </div>
 
-                <div class="form-group">
-                    <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" id="post_company">Post</button>
-                </div>
+            <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary btn-block"  id="post_company" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?>>
+                    Post
+                </button>
+            </div>
 
-            </form>
         </div>
     </div>
 </div>
