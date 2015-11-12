@@ -1,0 +1,13 @@
+
+.glyphicon-star{
+    color: #ED9C28;
+}
+.glyphicon-star-half{
+    position: relative;
+}
+.glyphicon-star-half::before{
+    position: relative;
+    width: 47%;
+    display: block;
+    overflow: hidden;
+}
