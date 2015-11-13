@@ -17,8 +17,8 @@
 
     <a class="list-group-item" href="/browsecos.php">Browse companies by rank  </a>
 
-    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createCompanyPost.php"' : 'href="/login.php"'); ?> >
-        Post a company / position
+    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createJobPost.php"' : 'href="/login.php"'); ?> >
+        Post about a Position
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
