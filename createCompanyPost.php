@@ -1,27 +1,24 @@
 <?php
 
-    session_start();
+session_start();
 
-    if( isset($_POST['post_company'])) {
-        require '/resources/php/createCompanyPostScript.php';
+if( isset($_POST['post_company'])) {
+    require '/resources/php/createCompanyPostScript.php';
 
-    }
-
-echo $_SESSION['user'];
-echo $_SESSION['user_id'];
-
-    try {
-        $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-        $companyListSQL = "SELECT `company_id` AS 'value', `company_name` AS 'label' FROM `Company` WHERE 1";
-        $companyListQuery = $mysqli->query($companyListSQL);
-        $companyArray = array();
-        while( $row = $companyListQuery->fetch_assoc() ){
-            $companyArray[] = $row;
-        }
-        $companyList = json_encode($companyArray);
-    } catch (\Exception $e) {
-        echo $e->getMessage(), PHP_EOL;
-    }
+}
+try {
+    $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
+    $companyListSQL = " SELECT `company_id`, `company_name`
+                        FROM `Company`
+                            LEFT JOIN `Employment_History`
+                            ON `Company`.`company_id` = `Employment_History`.`fk_company_id`
+                        WHERE `fk_user_id` = ".$_SESSION['user_id'];
+    $companyListQuery = $mysqli->query($companyListSQL);
+    $companyListCount = $companyListQuery->num_rows;
+    $mysqli->close();
+} catch (\Exception $e) {
+    echo $e->getMessage(), PHP_EOL;
+}
 
 
 ?>
@@ -113,9 +110,22 @@ echo $_SESSION['user_id'];
 
 
                     <div class="form-group">
-                        <label for="post_title">Company</label>
-                        <input id="autoC" class="form-control" placeholder="Start typing.." />
-                        <input type="hidden" name="companyID" id="companyID" />
+                        <label for="post_title">Company</label><br>
+                        <select id="autoC" class="form-control" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?> >
+                            <?php
+                            while( $company = $companyListQuery->fetch_assoc() ){
+                                echo '<option value="',$company['company_id'],'">',$company['company_name'],'</option>';
+                            }
+                            ?>
+                        </select>
+                        <?php
+                        if($companyListCount < 1){
+                            echo '<div class="alert alert-danger text-center">
+                                <strong>No employment history!</strong>
+                                <a href="/login.php">Fill out your profile!</a>
+                               </div>';
+                        }
+                        ?>
                     </div>
 
                     <div class="rating">
@@ -126,7 +136,7 @@ echo $_SESSION['user_id'];
                         <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
                         <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
                     </div>
-
+<!--
                     <br><br><br>
 
                     <div class="form-group">
@@ -142,7 +152,7 @@ echo $_SESSION['user_id'];
                         </label>
                         <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
                     </div>
-
+-->
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
                     </div>
