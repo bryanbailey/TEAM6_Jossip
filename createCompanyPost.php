@@ -28,7 +28,7 @@ try {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Praveen Kumar G">
+    <meta name="author" content="Praveen Kumar G, Kasey Eljoundi">
     <title>New User Registration</title>
     <!-- jquery 2.1.4 -->
     <script src="/vendors/jquery-2.1.4.min.js"></script>
