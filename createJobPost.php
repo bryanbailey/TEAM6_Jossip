@@ -54,6 +54,37 @@ try {
         }
     </style>
 
+    <script>
+        $(document).ready(function(){
+
+            $("#companyDropdown").prop("value", "-1");
+
+            $("#submitButton").click(function(){
+                //if( !$("#post_position").val() || !$("#post_content").val() || $("#companyDropdown").val() < 1 ){
+                    //form checking
+                //}else{
+
+                    console.log($("#post_position").val());
+                    console.log($("#post_content").val());
+                    console.log($("#companyDropdown").val());
+
+                    $.ajax({
+                        url: "/resources/php/createJobPostScript.php",
+                        type: "POST",
+                        data: { "position":$("#post_position").val() , "content":$("#post_content").val(), "company": $("#companyDropdown").val()  },
+                        success:
+                            function(result) {
+                                console.log(result);
+                            }
+                    });
+
+                //}
+            });
+
+
+        });
+    </script>
+
 </head>
 <body>
 <?php
@@ -75,7 +106,7 @@ if( isset($_POST['post_company']) ){
 
             <div class="form-group">
                 <label for="post_title">Company</label><br>
-                <select id="autoC" class="form-control" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?> >
+                <select id="companyDropdown" class="form-control" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?> >
                     <?php
                         while( $company = $companyListQuery->fetch_assoc() ){
                             echo '<option value="',$company['company_id'],'">',$company['company_name'],'</option>';
@@ -98,20 +129,20 @@ if( isset($_POST['post_company']) ){
 
             <div class="form-group">
                 <label for="post_title">Position / job title</label>
-                <input type="text" class="form-control" name="post_title" id="post_title" />
+                <input type="text" class="form-control" id="post_position" />
             </div>
 
             <div class="form-group">
-                <label for="pos_content">
+                <label for="post_content">
                     How did you like working for <span class="companyName">the company</span>?<br />
                     Would you recommend this position at <span class="companyName">the company</span>?<br />
                     What worked well at  <span class="companyName">the company</span>?
                 </label>
-                <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
+                <textarea class="form-control" id="post_content" rows="5"></textarea>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary btn-block"  id="post_company" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?>>
+                <button type="submit" class="form-control btn btn-primary btn-block"  id="submitButton" <?php echo ($companyListCount<1) ? ' disabled="disabled" ':''; ?>>
                     Post
                 </button>
             </div>
