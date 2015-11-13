@@ -60,25 +60,33 @@ try {
             $("#companyDropdown").prop("value", "-1");
 
             $("#submitButton").click(function(){
-                //if( !$("#post_position").val() || !$("#post_content").val() || $("#companyDropdown").val() < 1 ){
-                    //form checking
-                //}else{
-
-                    console.log($("#post_position").val());
-                    console.log($("#post_content").val());
-                    console.log($("#companyDropdown").val());
-
+                if( !$("#post_position").val() || !$("#post_content").val() || $("#companyDropdown").val() < 1 ){
+                    if( !$("#post_position").val() ){
+                        $("#post_position").parents(".form-group").addClass("has-error");
+                    }
+                    if( !$("#post_content").val() ){
+                        $("#post_content").parents(".form-group").addClass("has-error");
+                    }
+                    if( $("#companyDropdown").val() < 1 ){
+                        $("#companyDropdown").parents(".form-group").addClass("has-error");
+                    }
+                }else{
                     $.ajax({
                         url: "/resources/php/createJobPostScript.php",
                         type: "POST",
                         data: { "position":$("#post_position").val() , "content":$("#post_content").val(), "company": $("#companyDropdown").val()  },
                         success:
                             function(result) {
-                                console.log(result);
+
+                                if( result == "1" ){ //if insertion query succeeded
+                                    window.location.href = "/index.php";
+                                }else{
+
+                                }
                             }
                     });
 
-                //}
+                }
             });
 
 
@@ -87,15 +95,28 @@ try {
 
 </head>
 <body>
-<?php
-include '/resources/php/navbar.php';
+    <?php
+        include '/resources/php/navbar.php';
 
-if( isset($_POST['post_company']) ){
-    if( !isset($_POST['post_title']) || $_POST['post_title'] == ""  ){
-        echo '<div class="alert alert-warning text-center">Post title Missing!</div>';
-    }
-}
-?>
+        if( isset($_POST['post_company']) ){
+            if( !isset($_POST['post_title']) || $_POST['post_title'] == ""  ){
+                echo '<div class="alert alert-warning text-center">Post title Missing!</div>';
+            }
+        }
+    ?>
+
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-title">
+                    Uh oh..
+                </div>
+                <div class="modal-body">
+                    Something went wrong creating your post. Please try again.
+                </div>
+            </div>
+        </div>
+    </div>
 
 <div class="container">
 
@@ -128,7 +149,7 @@ if( isset($_POST['post_company']) ){
             </div>
 
             <div class="form-group">
-                <label for="post_title">Position / job title</label>
+                <label for="post_position">Position / job title</label>
                 <input type="text" class="form-control" id="post_position" />
             </div>
 
