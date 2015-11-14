@@ -32,10 +32,7 @@ session_start();
 
         });
     </script>
-
-
 </head>
-
 <body>
 <?php
 include '/resources/php/navbar.php';
