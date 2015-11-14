@@ -4,7 +4,7 @@
  * Created by PhpStorm.
 
  */
-$_POST['username']='PK1';
+$_POST['username']='PK2';
 $_POST['first_name']='Praveen';
 $_POST['last_name']='kumar';
 $_POST['email']='test@gmai.com';
