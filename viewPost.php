@@ -3,9 +3,9 @@
 session_start();
 
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-$postListSQL = "  SELECT `po`.`position_title`,`po`.`position_description`,`c`.`company_name`,`p`.`post_title`,`p`.`post_content`,IFNULL(`p`.`position_rating`, '-') AS 'rating'
-                    FROM `company` c,`position_post` p,`position` po
-                    WHERE `c`.`company_id`=`po`.`fk_company_id` AND `po`.`position_id`=`p`.`fk_position_id`
+$postListSQL = "  SELECT `p`.`position_title`,`p`.`post_content`,`c`.`company_name`,`u`.`first_name`
+                FROM `position_post` `p`,`company` `c`,`user` `u`
+                WHERE `p`.`fk_company_id`=`c`.`company_id` AND `p`.`fk_user_id` = `u`.`user_id`
                       ";
 $postListSQLQuery = $mysqli->query($postListSQL);
 ?>
@@ -60,17 +60,15 @@ include '/resources/php/navbar.php';
         while( $post = $postListSQLQuery->fetch_assoc() ){
             echo '
                 <div class="panel panel-default">
-                    <div class="panel-heading">Company Name : <b>',$post['company_name'],'</b><span class="pull-right">Jossip rating: <b>',$post['rating'],' stars</b></span></div>
+                    <div class="panel-heading">Company Name : <b>',$post['company_name'],'</b></div>
 
                     <div class="panel-body"><b>Position Title : </b>',$post['position_title'],'</b></span>
 
                         <div class="panel-body"><b>Nature of work invlolved:</b>
-                             ',$post['position_description'],'</span>
+                             ',$post['post_content'],'</span>
                         </div>
-                           <div class="panel-body"><b>About the work:</b>
-                              ',$post['post_content'],'
-                           </div>
-                    <div class="panel-heading" style="font-size:small"><i></b>(Poster of <b>',$post['company_name'],')</b><span class="pull-right">Poster rating: <b>',$post['rating'],' stars</b></i></span></div>
+
+                    <div class="panel-heading" style="font-size:small"><i></b>(Poster: <b>',$post['first_name'],')</b></div>
 
 
 
