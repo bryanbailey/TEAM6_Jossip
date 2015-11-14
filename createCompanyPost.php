@@ -102,7 +102,7 @@ try {
 
     <div class="container">
 
-        <h1 class="page-header">Company / job post &nbsp; <small>Review a current or former position</small></h1>
+        <h1 class="page-header">Company post &nbsp; <small>Review a current or former employer</small></h1>
 
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
@@ -136,23 +136,7 @@ try {
                         <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
                         <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
                     </div>
-<!--
-                    <br><br><br>
 
-                    <div class="form-group">
-                        <label for="post_title">Position / job title</label>
-                        <input type="text" class="form-control" name="post_title" id="post_title" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pos_content">
-                            How did you like working for <span class="companyName">the company</span>?<br />
-                            Would you recommend this position at <span class="companyName">the company</span>?<br />
-                            What worked well at  <span class="companyName">the company</span>?
-                        </label>
-                        <textarea class="form-control" name="pos_content" id="pos_content" rows="5"></textarea>
-                    </div>
--->
                     <div class="form-group">
                         <button type="submit" class="form-control btn btn-primary btn-block" name="post_company" >Post</button>
                     </div>
