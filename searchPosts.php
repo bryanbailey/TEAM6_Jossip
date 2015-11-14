@@ -1,3 +1,3 @@
 <?php
-echo 'Under construction'
+echo 'Under construction - functionality to be added in Sprint 3'
 ?>
