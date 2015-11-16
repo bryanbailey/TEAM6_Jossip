@@ -7,18 +7,46 @@
  * Time: 9:18 AM
  */
 require_once 'PHPUnit/Autoload.php';
+require $_SERVER['DOCUMENT_ROOT'].'/resources/php/loginFunctions.php';
 
 class loginTest extends PHPUnit_Framework_TestCase
 {
 
-    public function testMysqliConnection(){
+
+    function testRetrieveSalt(){
+
+        //"post" variable needed for function
+        $username = "timoty";
+        //db connection needed for function
+        $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
+
+        $salt = retrieveSalt($username);
+            $this->assertEquals($salt, "1675870066562fafdd510302.39645971");
+
+        //clean up test
+        $mysqli->close();
+    }
+
+
+
+
+
+
+
+
+
+    /*
+     * OLD TEST CASES BELOW, still valid
+     */
+
+    public function testMysqliConnection_WHITEBOX(){
         $mysqliConn = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $connection = $mysqliConn->ping();
         $this->assertTrue($connection);
         $mysqliConn->close(); //cleanup test
     }
 
-    public function testRetrieveSalt(){
+    public function testRetrieveSalt_WHITEBOX(){
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $saltSQL = "SELECT `salt` FROM `User` WHERE STRCMP(`username`, ?)=0 LIMIT 1";
         $stmt = $mysqli->prepare($saltSQL);
@@ -38,7 +66,7 @@ class loginTest extends PHPUnit_Framework_TestCase
         $stmt->close();
     }
 
-    public function testLogin(){
+    public function testLogin_WHITEBOX(){
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $loginSQL = "SELECT `first_name`, `user_id` FROM `User` WHERE STRCMP(`username`, ?)=0 AND STRCMP(`password`, ?)=0 LIMIT 1";
         $stmt = $mysqli->prepare($loginSQL);
