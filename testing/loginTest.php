@@ -6,6 +6,8 @@
  * Date: 11/16/2015
  * Time: 9:18 AM
  */
+require_once 'PHPUnit/Autoload.php';
+
 class loginTest extends PHPUnit_Framework_TestCase
 {
 

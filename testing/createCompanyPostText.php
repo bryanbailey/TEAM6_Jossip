@@ -6,6 +6,9 @@
  * Date: 11/16/2015
  * Time: 9:11 AM
  */
+
+require_once 'PHPUnit/Autoload.php';
+
 class createCompanyPostText extends PHPUnit_Framework_TestCase
 {
     public function testMysqliConnection(){

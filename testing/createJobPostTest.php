@@ -6,6 +6,9 @@
  * Date: 11/16/2015
  * Time: 8:53 AM
  */
+
+require_once 'PHPUnit/Autoload.php';
+require_once 'PHPUnit/Autoload.php';
 class jobPostTest extends PHPUnit_Framework_TestCase
 {
 
