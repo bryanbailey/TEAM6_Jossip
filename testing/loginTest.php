@@ -43,7 +43,7 @@ class loginTest extends PHPUnit_Framework_TestCase
             $this->assertInstanceOf('mysqli_stmt', $stmt);
 
         $username = "keljoundi";    //valid test data to query
-        $password = "20STUsLKVBN36";
+        $hash = "20STUsLKVBN36";
 
         $bindResult = $stmt->bind_param('ss', $username, $hash);
             $this->assertTrue($bindResult);
