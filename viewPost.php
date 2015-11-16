@@ -62,25 +62,28 @@ include '/resources/php/navbar.php';
                             <div class="panel-body"><b>Nature of work invlolved:</b>
                              ',$post['post_content'],'</span>
                             </div>
-                        <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b>
+                        <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b><span class="pull-right">Jossip rating:</span>
                     </div>
                 </div>
     </div>
 
     <br>
-
-        <span"> Please rate the in its helpfulness to you:  <div class="rating"><br><br>
+        <span clas="pull-left"> Please rate this post in terms of its helpfulness to you:</span><br>
+        <div class="rating">
           <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
           <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
           <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
           <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
           <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
-        </span>
-
+        </div>
+    <br><br>
+    <div class="form-group">
+           <span class="pull-left"><button type="submit" class="form-control btn btn-primary btn-block" name="post_position" >Rate post</button></span>
+    </div>
     ';
 
+    ?>
 
-        ?>
     </div>
 
 
