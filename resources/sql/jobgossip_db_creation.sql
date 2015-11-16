@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2015 at 05:22 PM
+-- Generation Time: Nov 16, 2015 at 05:14 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `company`
 --
 
-DROP TABLE IF EXISTS `company`;
 CREATE TABLE IF NOT EXISTS `company` (
   `company_id` int(8) NOT NULL,
   `company_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -59,7 +58,6 @@ INSERT INTO `company` (`company_id`, `company_name`, `company_description`) VALU
 -- Table structure for table `company_post`
 --
 
-DROP TABLE IF EXISTS `company_post`;
 CREATE TABLE IF NOT EXISTS `company_post` (
   `post_id` int(8) NOT NULL,
   `fk_user_id` int(8) NOT NULL,
@@ -86,7 +84,6 @@ INSERT INTO `company_post` (`post_id`, `fk_user_id`, `fk_company_id`, `post_titl
 -- Table structure for table `employment_history`
 --
 
-DROP TABLE IF EXISTS `employment_history`;
 CREATE TABLE IF NOT EXISTS `employment_history` (
   `employment_record_id` int(11) NOT NULL,
   `fk_user_id` int(11) NOT NULL,
@@ -108,7 +105,6 @@ INSERT INTO `employment_history` (`employment_record_id`, `fk_user_id`, `fk_comp
 -- Table structure for table `position_post`
 --
 
-DROP TABLE IF EXISTS `position_post`;
 CREATE TABLE IF NOT EXISTS `position_post` (
   `post_id` int(8) NOT NULL,
   `fk_user_id` int(8) NOT NULL,
@@ -116,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `position_post` (
   `position_title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `post_content` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `post_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `position_post`
@@ -124,7 +120,20 @@ CREATE TABLE IF NOT EXISTS `position_post` (
 
 INSERT INTO `position_post` (`post_id`, `fk_user_id`, `fk_company_id`, `position_title`, `post_content`, `post_time`) VALUES
 (1, 4, 4, 'Taste Tester', 'I may have drank too much during my tenure but it was a good run. Management is friendly and the atmosphere is pleasant', '2015-10-27 13:19:27'),
-(2, 6, 13, 'Software Engineer', 'Get ready for the Agile Scrum process! Either learn fast and contribute or get out of the way! The methods are efficient and the teams well organized. This company knows how to utilize their talents and they pay dividends with benefits. 10/10 best job I''ve ever had.', '2015-10-27 13:21:53');
+(2, 6, 13, 'Software Engineer', 'Get ready for the Agile Scrum process! Either learn fast and contribute or get out of the way! The methods are efficient and the teams well organized. This company knows how to utilize their talents and they pay dividends with benefits. 10/10 best job I''ve ever had.', '2015-10-27 13:21:53'),
+(5, 1, 11, 'dev', 'lots', '2015-11-13 11:41:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `position_post_rating`
+--
+
+CREATE TABLE IF NOT EXISTS `position_post_rating` (
+  `fk_position_post` int(11) NOT NULL,
+  `fk_user_id` int(11) NOT NULL,
+  `rating` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -132,7 +141,6 @@ INSERT INTO `position_post` (`post_id`, `fk_user_id`, `fk_company_id`, `position
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(8) NOT NULL,
   `username` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
@@ -194,6 +202,13 @@ ALTER TABLE `position_post`
   ADD KEY `fk_company_id` (`fk_company_id`);
 
 --
+-- Indexes for table `position_post_rating`
+--
+ALTER TABLE `position_post_rating`
+  ADD KEY `fk_position_post` (`fk_position_post`),
+  ADD KEY `fk_user_id` (`fk_user_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -223,7 +238,7 @@ ALTER TABLE `employment_history`
 -- AUTO_INCREMENT for table `position_post`
 --
 ALTER TABLE `position_post`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -253,6 +268,14 @@ ALTER TABLE `employment_history`
 ALTER TABLE `position_post`
   ADD CONSTRAINT `position_post_ibfk_1` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`user_id`),
   ADD CONSTRAINT `position_post_ibfk_2` FOREIGN KEY (`fk_company_id`) REFERENCES `company` (`company_id`);
+
+--
+-- Constraints for table `position_post_rating`
+--
+ALTER TABLE `position_post_rating`
+  ADD CONSTRAINT `position_post_rating_ibfk_1` FOREIGN KEY (`fk_position_post`) REFERENCES `position_post` (`post_id`),
+  ADD CONSTRAINT `position_post_rating_ibfk_2` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `position_post_rating_ibfk_3` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`user_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
