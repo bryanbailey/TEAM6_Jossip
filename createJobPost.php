@@ -57,6 +57,7 @@ try {
     <script>
         $(document).ready(function(){
 
+            /* default dropdown list to blank entry - forces users to select co */
             $("#companyDropdown").prop("value", "-1");
 
             $("#submitButton").click(function(){
