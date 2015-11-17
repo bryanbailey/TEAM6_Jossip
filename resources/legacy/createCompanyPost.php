@@ -107,7 +107,7 @@ try {
 
         <div class="panel-body">
             <div class="col-sm-6 col-sm-offset-3">
-                <form method="POST" action="/createCompanyPost.php">
+                <form method="POST" action="/resources/legacy/createCompanyPost.php">
 
 
                     <div class="form-group">
