@@ -5,29 +5,16 @@
  * Date: 10/27/2015
  */
 
+session_start();
 
-try {
-    $mysqliConn = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-    $createcompany_postSQL = "INSERT INTO `company_post`(`fk_company_id`,`fk_user_id`,`post_title`,`post_content`,`company_rating`)
-                              VALUES(?,?,?,?,?)";
-
-    $stmt = $mysqliConn->prepare($createcompany_postSQL);
-    $stmt->bind_param('sssss',
-        $_POST['companyID'],
-        $_SESSION['user_id'],
-        $_POST['post_title'],
-        $_POST['pos_content'],
-        $_POST['jobrating'] );
-    $stmt->execute();
-    $stmt->close();
-    $mysqliConn->close();
-
-} catch (\Exception $e) {
-    echo $e->getMessage(), PHP_EOL;
-}
+require $_SERVER['DOCUMENT_ROOT'] . '/resources/php/generalFunctions.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/resources/php/companyFunctions.php';
 
 
-
-
+$mysqli = createDBConnection();//create DB connection
+$result = insertCompany($mysqli, $_POST['companyID'],
+                        $_SESSION['user_id'], $_POST['post_title'],
+                        $_POST['pos_content'], $_POST['jobrating']);
+$mysqli->close();
 
 ?>

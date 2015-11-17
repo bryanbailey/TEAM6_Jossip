@@ -8,26 +8,13 @@
 
 session_start();
 
+require $_SERVER['DOCUMENT_ROOT'] . '/resources/php/generalFunctions.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/resources/php/positionFunctions.php';
 
-try {
-    $mysqliConn = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-    $jobPostSQL = "INSERT INTO `Position_Post`(`fk_user_id`,`fk_company_id`, `position_title`, `post_content`)
-                              VALUES(?,?,?,?)";
+$mysqli = createDBConnection();//create DB connection
+$result = postPosition($mysqli, $_SESSION['user_id'], $_POST['company'], $_POST['position'], $_POST['content']);
+$mysqli->close();
 
-    $stmt = $mysqliConn->prepare($jobPostSQL);
-    $stmt->bind_param('ssss',
-        $_SESSION['user_id'],
-        $_POST['company'],
-        $_POST['position'],
-        $_POST['content'] );
-    $result = $stmt->execute();
-    $stmt->close();
-    $mysqliConn->close();
-    echo $result;
-
-} catch (\Exception $e) {
-    echo $e->getMessage(), PHP_EOL;
-}
 
 
 

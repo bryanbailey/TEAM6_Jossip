@@ -25,7 +25,7 @@ function login($loginResult){
 /*
  * get salt of user
  */
-function retrieveSalt($username){
+function retrieveSalt($mysqli, $username){
 
     /* use "global" to use a variable declared outside the function without
        having to pass in as parameter  */
@@ -54,7 +54,7 @@ function retrieveHash($password, $salt){
 /*
  * returns mysqli result set
  */
-function loginRecord($username, $hash){
+function loginRecord($mysqli, $username, $hash){
     global $mysqli;
     //sql to check login
     $loginSQL = "SELECT `first_name`, `user_id`, `username` FROM `User` WHERE STRCMP(`username`, ?)=0 AND STRCMP(`password`, ?)=0 LIMIT 1";
