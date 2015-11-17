@@ -29,7 +29,7 @@ try {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,11 +78,11 @@ try {
                         data: { "position":$("#post_position").val() , "content":$("#post_content").val(), "company": $("#companyDropdown").val()  },
                         success:
                             function(result) {
-
                                 if( result == "1" ){ //if insertion query succeeded
                                     window.location.href = "/index.php";
                                 }else{
-
+                                    $("#companyDropdown").prop("value", "-1");
+                                    $("#postError").show();
                                 }
                             }
                     });
@@ -96,30 +96,13 @@ try {
 
 </head>
 <body>
-    <?php
-        include '/resources/php/navbar.php';
 
-        if( isset($_POST['post_company']) ){
-            if( !isset($_POST['post_title']) || $_POST['post_title'] == ""  ){
-                echo '<div class="alert alert-warning text-center">Post title Missing!</div>';
-            }
-        }
-    ?>
-
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-title">
-                    Uh oh..
-                </div>
-                <div class="modal-body">
-                    Something went wrong creating your post. Please try again.
-                </div>
-            </div>
-        </div>
-    </div>
 
 <div class="container">
+
+    <div class="alert alert-danger" id="postError">
+        <strong>Uh Oh..</strong> Something went wrong creating your post. Please try again.
+    </div>
 
     <h1 class="page-header">New position post &nbsp; <small>Review a current or former position with existing company</small></h1>
 

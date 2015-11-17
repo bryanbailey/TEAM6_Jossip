@@ -15,7 +15,11 @@ $mysqli = createDBConnection();//create DB connection
 $result = postPosition($mysqli, $_SESSION['user_id'], $_POST['company'], $_POST['position'], $_POST['content']);
 $mysqli->close();
 
-
+/*
+ * print result of insertion back to calling page
+ *  (not required to be handled by calling page)
+ */
+echo $result;
 
 
 
