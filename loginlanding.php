@@ -39,7 +39,7 @@ include './resources/php/navbar.php';
         <p>Would you like to:</p>
         <ol>
             <li><a href="/register.php">Change your account details?</a></li>
-            <li><a href="/resources/legacy/createJobPost.php">Post and rate a position/company?</a></li>
+            <li><a href="/createJobPost.php">Post and rate a position/company?</a></li>
         </ol>
 
     </div>
