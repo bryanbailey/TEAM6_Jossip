@@ -34,6 +34,7 @@
                     <ul class="dropdown-menu">
                         <?php
                         if( isset( $_SESSION['JobGossipLogin'] ) ) {
+                            echo "<li><a href=\"/profile.php\">My Profile</a></li>";
                             echo "<li><a href=\"/resources/php/logout.php\">Logout</a></li>";
                         }else{
                             echo "<li><a href=\"/login.php\">Login</a></li >";

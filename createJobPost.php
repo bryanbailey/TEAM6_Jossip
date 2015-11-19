@@ -45,12 +45,16 @@ try {
     <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
     <!-- General Job Gossip styling -->
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
-    <link rel="stylesheet" href="/resources/css/jgStyle.css">
+    <link rel="stylesheet" href="/resources/css/createJobPost.css">
 
     <style type="text/css">
         .companyName { /* displaying co name in questions */
             text-decoration: underline;
             font-style: italic;
+        }
+
+        #postError{
+            display: none;
         }
     </style>
 
@@ -59,6 +63,15 @@ try {
 
             /* default dropdown list to blank entry - forces users to select co */
             $("#companyDropdown").prop("value", "-1");
+
+            /* display selected company name in guiding questions */
+            $("#companyDropdown").change(function(){
+                if( $(this).val() > 0 ){
+                    $(".companyName").text( $(this).text() );
+                }else{
+                    $(".companyName").text("the company");
+                }
+            });
 
             $("#submitButton").click(function(){
                 if( !$("#post_position").val() || !$("#post_content").val() || $("#companyDropdown").val() < 1 ){
@@ -79,7 +92,7 @@ try {
                         success:
                             function(result) {
                                 if( result == "1" ){ //if insertion query succeeded
-                                    window.location.href = "/index.php";
+                                    $("#success-modal").modal('show');
                                 }else{
                                     $("#companyDropdown").prop("value", "-1");
                                     $("#postError").show();
@@ -90,12 +103,28 @@ try {
                 }
             });
 
-
         });
     </script>
+    <style type="text/css">
+
+
+
+    </style>
 
 </head>
 <body>
+
+<?php
+include './resources/php/navbar.php';
+?>
+
+<div class="modal" id="success-modal">
+    <div class="modal-dialog">
+        <span class="glyphicon glyphicon-ok"></span>
+        <div class="success-text">Post Submitted!</div>
+        <button class="btn btn-xs btn-default" data-dismiss="modal">OK</button>
+    </div>
+</div>
 
 
 <div class="container">
@@ -104,7 +133,7 @@ try {
         <strong>Uh Oh..</strong> Something went wrong creating your post. Please try again.
     </div>
 
-    <h1 class="page-header">New position post &nbsp; <small>Review a current or former position with existing company</small></h1>
+    <h1 class="page-header">New position post &nbsp; <small>Review a current or former position</small></h1>
 
     <div class="panel-body">
         <div class="col-sm-6 col-sm-offset-3">

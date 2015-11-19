@@ -1,0 +1,37 @@
+#success-modal > .modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 35%;
+    width: 35%;
+    border-radius: 50%;
+    background-color: #419641;
+    text-align: center;
+}
+
+#success-modal > .modal-dialog > .glyphicon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+    color: white;
+}
+
+#success-modal .success-text {
+    position: relative;
+    top: 25%;
+    font-size: 2em;
+    color: white;
+}
+
+#success-modal .btn {
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    bottom: 5%;
+}
