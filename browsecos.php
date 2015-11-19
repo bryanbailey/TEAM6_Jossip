@@ -64,6 +64,11 @@
                 <?php
                     include '/resources/php/sidebarList.php';
                 ?>
+
+                <br>
+
+                <div class="pull-left">Ratings of <b>1 to 5 stars</b> have been given to the companies by individuals who have been employed by those firms.</div>
+
             </div>
 
             <div class = "col-sm-9">
@@ -89,7 +94,6 @@
 
                         echo '    </div>
                                 </h3>
-                                <hr /> Jossip rating: <b>',$company['rating'],' stars</b><br />
                                 <div class="text-right"><a href="#">See what people are saying about ',$company['company_name'],'</a></div>
                             </div>
                         ';
@@ -101,12 +105,9 @@
                     <h3>Want to see more? So do we! Rate your employers!</h3>
                 </div>
 
-
             </div>
 
-
         </div>
-
 
     </body>
 </html>
