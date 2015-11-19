@@ -67,7 +67,7 @@
 
                 <br>
 
-                <div class="pull-left">Ratings of <b>1 to 5 stars</b> have been given to the companies by individuals who have been employed by those firms.</div>
+                <div class="pull-left">Ratings of <b>1 to 5 stars</b> are assigned to the companies by individuals who have been employed by those firms.</div>
 
             </div>
 
