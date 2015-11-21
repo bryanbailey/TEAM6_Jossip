@@ -15,7 +15,7 @@ $postListSQLQuery = $mysqli->query($postListSQL);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jossip view posts page</title>
+    <title>Jossip browse posts page</title>
 
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
     <script src="/vendors/jquery-2.1.4.min.js"></script>
@@ -59,7 +59,8 @@ include '/resources/php/navbar.php';
 
         <br>
 
-        <div class="pull-left">Ratings of <b>1 to 5 stars</b> a re assigned to the posts by individuals rating the usefulness of the information from those who have been employed by the respective firms.</div>
+        <div class="pull-left">Position posts in <b>Jossip</b> are written by registered Jossip users who have actually
+            held those positions.</div>
 
     </div>
 
@@ -73,16 +74,6 @@ include '/resources/php/navbar.php';
                 <p><b>Comments: </b>', $post['post_content'], '</b></p>
             ';
 
-            //print star rating in glyphicons
-            //for( $i=1; $i<=$rating; $i++ ){
-            //    echo '<span class="glyphicon glyphicon-star"></span>';
-            //}
-
-            //if decimal of rating avg is within .25-.75 print a half star
-            //if( fmod($rating,1.0) >= 0.25 && fmod($rating,1.0) <= 0.75 ){
-            //    echo '<span class="glyphicon glyphicon-star glyphicon-star-half"></span>';
-
-
             echo '
                  <div class="text-right"><a href="#">See the whole ', $post['position_title'], ' post and its rating.</a></div>
             </div>
@@ -90,11 +81,6 @@ include '/resources/php/navbar.php';
         }
         ?>
 
-        <!-- end of list message
-        <div class="well text-center text-muted">
-            <h3>Want to see more? So do we! Rate your employers!</h3>
-        </div>
--->
     </div>
 
 </div>
