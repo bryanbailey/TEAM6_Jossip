@@ -53,38 +53,29 @@ include '/resources/php/navbar.php';
     </div>
 
     <div class = "col-sm-9">
-        <?php
-        while( $company = $companyListQuery->fetch_assoc() ){
-            $rating = floatval($company["rating"]);
-            echo '
-                            <div class="well company-well">
-                                <h3>
-                                    <b>',$company['company_name'],'</b>
-                                    <div class="pull-right">';
+        <h4>You may search by one of the following criteria: </h4><br>
 
-            //print star rating in glyphicons
-            for( $i=1; $i<=$rating; $i++ ){
-                echo '<span class="glyphicon glyphicon-star"></span>';
-            }
-
-            //if decimal of rating avg is within .25-.75 print a half star
-            if( fmod($rating,1.0) >= 0.25 && fmod($rating,1.0) <= 0.75 ){
-                echo '<span class="glyphicon glyphicon-star glyphicon-star-half"></span>';
-            }
-
-
-            echo '    </div>
-                                </h3>
-                                <div class="text-right"><a href="#">See what people are saying about ',$company['company_name'],'</a></div>
-                            </div>
-                        ';
-        }
-        ?>
-
-        <!-- end of list message -->
-        <div class="well text-center text-muted">
-            <h3>Want to see more? So do we! Rate your employers!</h3>
+        <div class="form-group">
+            <label for="post_position">Job title: </label>
+            <input type="text" class="form-control" id="post_position" />
         </div>
+
+        <div class="form-group">
+            <label for="company_name">Company name: </label>
+            <input type="text" class="form-control" id="company_name" />
+        </div>
+
+        <div class="form-group">
+            <label for="user_id">Jossip poster: </label>
+            <input type="text" class="form-control" id="user_id" />
+        </div>
+        <br>
+        <div class="form-group">
+            <span class="pull-left"><button type="submit" class="form-control btn btn-primary btn-block"  id="submitButton"></span>
+                Search
+            </button>
+        </div>
+
 
     </div>
 
