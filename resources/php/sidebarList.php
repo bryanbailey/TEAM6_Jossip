@@ -23,11 +23,14 @@
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
     </a>
+    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browseJobPosts.php"' : 'href="/login.php"'); ?> >
+        Browse position posts
+    </a>
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/searchPosts.php"' : 'href="/login.php"'); ?> >
-        Search posts
+        Search for specific position posts
     </a>
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/profile.php"' : 'href="/login.php"'); ?> >
-        View profile information
+        View your profile information
     </a>
 
 </div>
