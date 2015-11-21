@@ -17,18 +17,22 @@
 
     <a class="list-group-item" href="/browsecos.php">Browse companies by rank  </a>
 
+    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browseJobPosts.php"' : 'href="/login.php"'); ?> >
+        Browse position posts
+    </a>
+
+
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createJobPost.php"' : 'href="/login.php"'); ?> >
         Post a position
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
         <span class="glyphicon glyphicon-star glyphicon-star-gold"></span>
     </a>
-    <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browseJobPosts.php"' : 'href="/login.php"'); ?> >
-        Browse position posts
-    </a>
+
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/searchPosts.php"' : 'href="/login.php"'); ?> >
         Search for specific position posts
     </a>
+
     <a class="list-group-item" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/profile.php"' : 'href="/login.php"'); ?> >
         View your profile information
     </a>
