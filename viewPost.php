@@ -55,11 +55,11 @@ include '/resources/php/navbar.php';
     $post = $postListSQLQuery->fetch_assoc();
             echo '
                 <div class="panel panel-default">
-                    <div class="panel-heading">Company Name : <b>',$post['company_name'],'</b></div>
+                    <div class="panel-heading"><h3><b>',$post['position_title'],'</b></h3></div>
 
-                        <div class="panel-body"><b>Position Title : </b>',$post['position_title'],'</b></span>
+                        <div class="panel-body">Employer: <b>',$post['company_name'],'</b></span>
 
-                            <div class="panel-body"><b>Nature of work invlolved:</b>
+                            <div class="panel-body"><b>Comments:</b>
                              ',$post['post_content'],'</span>
                             </div>
                         <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b><span class="pull-right">Jossip rating:</span>
