@@ -28,7 +28,6 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
         $(document).ready(function() {
 
             /* make navbar, sidebar list link display as active for current page */
-            $("#navbar a[href=\"/searchPosts.php\"]").parent("li").addClass("active");
             $("#sidebarList a[href=\"/searchPosts.php\"]").addClass("active");
 
         });
