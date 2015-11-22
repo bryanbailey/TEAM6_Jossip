@@ -5,10 +5,7 @@ session_start();
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Jossip home page</title>
-    <!-- This is the "Landing page" for the website, which will serve as the first page people see and the introduction to the product.
-        All the pages are broken up into roughly the same divisions, and the "header" and "nav" ones will rarely change except to change
-        the navigation within the site. -->
+    <title>Jossip user profile page</title>
 
     <!-- jquery 2.1.4 -->
     <script src="/vendors/jquery-2.1.4.min.js"></script>
