@@ -38,17 +38,13 @@ include './resources/php/navbar.php';
         <h3>You've successfully logged in to Jossip!</h3>
         <p>Would you like to:</p>
         <ol>
-            <li><a href="/register.php">Change your account details?</a></li>
+            <li><a href="/profile.php">Change your account details?</a></li>
             <li><a href="/createJobPost.php">Post and rate a position/company?</a></li>
         </ol>
 
     </div>
 
     <div id = "login">
-
-        <!-- <form action="index.php">
-            <input class="btn btn-primary" type="submit" value="Logout">
-        </form> -->
 
     </div>
 </div>
