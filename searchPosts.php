@@ -1,9 +1,6 @@
 <?php
-
 session_start();
-
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,17 +20,36 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 
     <!-- browsecos css styling -->
     <link rel="stylesheet" href="/resources/css/browsecos.css">
-
+    <style type="text/css">
+                .container> .alert{
+            position: absolute;
+            left: 30%;
+            right: 30%;
+            margin: 10px auto;
+            text-align: center;
+        }
+    </style>
     <script>
         $(document).ready(function() {
-
             /* make navbar, sidebar list link display as active for current page */
             $("#sidebarList a[href=\"/searchPosts.php\"]").addClass("active");
+            $("#submitButton").click(function(e){
+                if( $("#company_name").val() == "" && $("#user_id").val() == "" && $("#post_position").val() == "" ){
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $("#company_name").parent(".form-group").addClass("has-error");
+                    $("#user_id").parent(".form-group").addClass("has-error");
+                    $("#post_position").parent(".form-group").addClass("has-error");
+                }
+                if( $("#company_name").val() != "" && $("#user_id").val() != "" && $("#post_position").val() != "" )
+                {
+// Enter MEssage 
+
+                }
+            });
 
         });
     </script>
-
-
 </head>
 
 <body>
@@ -41,7 +57,7 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 include '/resources/php/navbar.php';
 ?>
 
-<div class = "container">
+<div class = "container.searchpost">
 
     <h1 class="page-header">Search Jossip posts</h1>
 
@@ -52,33 +68,27 @@ include '/resources/php/navbar.php';
     </div>
 
     <div class = "col-sm-9">
-        <h4>You may search by one of the following criteria: </h4><br>
-
         <div class="form-group">
-            <label for="post_position">Job title: </label>
-            <input type="text" class="form-control" id="post_position" />
+            <h4>You may search by one of the following criteria: </h4>
+            <form class="form-signin" method="POST" action="/searchresultscript.php">
+                      <label for="post_position">Job title: </label>
+            <input type="text" name="Position_Name" id="post_position" class="form-control" placeholder="Position name" autofocus="autofocus" />
         </div>
-
         <div class="form-group">
             <label for="company_name">Company name: </label>
-            <input type="text" class="form-control" id="company_name" />
+            <input type="text" name="company_name" id="company_name" class="form-control" placeholder="Company name" autofocus="autofocus" />
         </div>
-
         <div class="form-group">
             <label for="user_id">Jossip poster: </label>
-            <input type="text" class="form-control" id="user_id" />
+              <input type="text" name="user_id" id="user_id" class="form-control" placeholder="Poster" autofocus="autofocus" />
         </div>
-        <br>
         <div class="form-group">
-            <span class="pull-left"><button type="submit" class="form-control btn btn-primary btn-block"  id="submitButton"></span>
-                Search
+            <span class="pull-right"><button type="submit" class="form-control btn btn-primary btn-block"  id="submitButton"></span>
+            Search
             </button>
-        </div>
-
+         </div>
 
     </div>
-
 </div>
-
 </body>
 </html>
