@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 if( isset($_POST['post_company'])) {
     require '/resources/php/createCompanyPostScript.php';
 
@@ -19,11 +17,8 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage(), PHP_EOL;
 }
-
-
 ?>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">

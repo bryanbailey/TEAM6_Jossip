@@ -1588,6 +1588,14 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.container.searchpost{
+
+  padding-right: 2px;
+  padding-left: 2px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;

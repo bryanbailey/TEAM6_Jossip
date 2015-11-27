@@ -1,5 +1,4 @@
 <?php
-
 /*
  * test for successful login and route to page
  */
@@ -8,7 +7,6 @@ function login($loginResult){
     $loginSuccess = ($loginResult->num_rows == 1) ? true : false;
     //retrieve data from result set
     $userInfo = $loginResult->fetch_assoc();
-
     //login successfull
     if ($loginSuccess) {
         session_start();                    //call at very begining of all pages

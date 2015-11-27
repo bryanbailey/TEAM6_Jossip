@@ -1,10 +1,14 @@
 <?php
 session_start();
+$cP = $_GET['compna'];
+echo " $cP";
 
     $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-    $postListSQL = "  SELECT `p`.`position_title`,`p`.`post_content`,`c`.`company_name`,`u`.`first_name`
-                FROM `position_post` `p`,`company` `c`,`user` `u`
-                WHERE `p`.`fk_company_id`=`c`.`company_id` AND `p`.`fk_user_id` = `u`.`user_id`
+    $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,
+    (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
+    (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
+    FROM position_post,company,company_post
+WHERE position_post.post_id=$cP and company_post.post_id=$cP
                       ";
     $postListSQLQuery = $mysqli->query($postListSQL);
 ?>
@@ -54,18 +58,16 @@ include '/resources/php/navbar.php';
 
     $post = $postListSQLQuery->fetch_assoc();
             echo '
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h3><b>',$post['position_title'],'</b></h3></div>
-
-                        <div class="panel-body">Employer: <b>',$post['company_name'],'</b></span>
-
-                            <div class="panel-body"><b>Comments:</b>
-                             ',$post['post_content'],'</span>
-                            </div>
-                        <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b><span class="pull-right">Jossip rating:</span>
-                    </div>
+            <div class="panel panel-default">
+          <div class="panel-heading"><h3><b>',$post['company_name'],'</b></h3></div> </a>
+                    <div class="panel-body">Position: <b>',$post['position_title'],'</b></span>
+                        <div class="panel-body"><b>Comments:</b>
+                         ',$post['post_content'],'</span>
+                        </div>
+                    <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b>
                 </div>
-    </div>
+            </div>
+</div>
 
     <br>
         <span clas="pull-left"> Please rate this post in terms of its helpfulness to you:</span><br>
