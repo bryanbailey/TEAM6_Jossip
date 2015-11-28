@@ -6,6 +6,9 @@
  * Time: 11:16 AM
  */
 
+    /*
+     * returns mysqli object
+     */
     function createDBConnection(){
 
         try {
@@ -16,5 +19,7 @@
         return $mysqli;
 
     }
+
+
 
 ?>

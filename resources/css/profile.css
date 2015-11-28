@@ -60,3 +60,29 @@
     font-size: 4em;
     font-weight: bold;
 }
+
+/* misc */
+body{
+    padding-bottom: 50px;
+}
+
+/* Employment history */
+#employmentHistory{
+    margin-top: 50px;
+}
+
+#addEmploymentHistory{
+    display: none;
+}
+
+/* personal info */
+#personalInfo{
+    margin-top: 50px;
+}
+#userInfoSavedAlert{
+    display: none;
+}
+
+ul.ui-autocomplete{
+    background-color: lightgray;
+}

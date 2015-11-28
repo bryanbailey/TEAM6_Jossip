@@ -67,10 +67,14 @@ try {
             /* display selected company name in guiding questions */
             $("#companyDropdown").change(function(){
                 if( $(this).val() > 0 ){
-                    $(".companyName").text( $(this).text() );
+                    $(".companyName").text( $("#companyDropdown option:selected").text() );
                 }else{
                     $(".companyName").text("the company");
                 }
+            });
+
+            $("#companyDropdown").focusin(function(){
+                $("#dropdownHint").show();
             });
 
             $("#submitButton").click(function(){
@@ -135,7 +139,7 @@ include './resources/php/navbar.php';
 
     <h1 class="page-header">New position post &nbsp; <small>Review a current or former position</small></h1>
 
-    <div class="panel-body">
+
         <div class="col-sm-6 col-sm-offset-3">
 
             <div class="form-group">
@@ -182,7 +186,17 @@ include './resources/php/navbar.php';
             </div>
 
         </div>
-    </div>
+
+        <div class="col-sm-3">
+
+            <div class="alert alert-info text-center" id="dropdownHint">
+                <a href="/profile.php">Don't see your company? Go to your profile to add one.</a>
+            </div>
+
+        </div>
+
+
+</div>
 </div>
 
 </body>
