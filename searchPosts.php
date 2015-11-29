@@ -7,17 +7,13 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 <head>
     <meta charset="UTF-8">
     <title>Jossip search page</title>
-
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
     <script src="/vendors/jquery-2.1.4.min.js"></script>
-
     <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
     <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-
     <!-- General Job Gossip styling -->
     <link rel="stylesheet" href="/resources/css/jgStyle.css">
-
     <!-- browsecos css styling -->
     <link rel="stylesheet" href="/resources/css/browsecos.css">
     <style type="text/css">
@@ -40,10 +36,13 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
                     $("#company_name").parent(".form-group").addClass("has-error");
                     $("#user_id").parent(".form-group").addClass("has-error");
                     $("#post_position").parent(".form-group").addClass("has-error");
+
                 }
                 if( $("#company_name").val() != "" && $("#user_id").val() != "" && $("#post_position").val() != "" )
                 {
-// Enter MEssage 
+                  e.preventDefault();
+                  e.stopPropagation();
+                  alert("Select any one");
 
                 }
             });
@@ -87,7 +86,6 @@ include '/resources/php/navbar.php';
             Search
             </button>
          </div>
-
     </div>
 </div>
 </body>

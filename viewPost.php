@@ -1,14 +1,12 @@
 <?php
 session_start();
 $cP = $_GET['compna'];
-echo " $cP";
-
     $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
     $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,
     (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
     (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
     FROM position_post,company,company_post
-WHERE position_post.post_id=$cP and company_post.post_id=$cP
+    WHERE position_post.post_id=$cP and company_post.post_id=$cP
                       ";
     $postListSQLQuery = $mysqli->query($postListSQL);
 ?>
@@ -19,21 +17,16 @@ WHERE position_post.post_id=$cP and company_post.post_id=$cP
     <title>Viewing position post</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
     <script src="/vendors/jquery-2.1.4.min.js"></script>
-
     <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
     <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-
     <!-- General Job Gossip styling -->
     <link rel="stylesheet" href="/resources/css/jgStyle.css">
-
     <script>
         $(document).ready(function() {
-
             /* make navbar, sidebar list link display as active for current page */
             $("#navbar a[href=\"/viewPost.php\"]").parent("li").addClass("active");
             $("#sidebarList a[href=\"/viewPost.php\"]").addClass("active");
-
         });
     </script>
 </head>
@@ -43,10 +36,7 @@ include '/resources/php/navbar.php';
 ?>
 
 <div class = "container">
-
-
     <h1 class="page-header">Jossip Post</h1>
-
     <div class="col-sm-3">
         <?php
         include '/resources/php/sidebarList.php';
@@ -68,7 +58,6 @@ include '/resources/php/navbar.php';
                 </div>
             </div>
 </div>
-
     <br>
         <span clas="pull-left"> Please rate this post in terms of its helpfulness to you:</span><br>
         <div class="rating">
@@ -85,12 +74,7 @@ include '/resources/php/navbar.php';
     ';
 
     ?>
-
     </div>
-
-
 </div>
-
-
 </body>
 </html>

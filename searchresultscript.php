@@ -10,6 +10,27 @@ session_start();
                     ";
       $CPQuery = $mysqli->query($companylist);
     }
+if (isset($_POST['Position_Name']) && ($_POST['Position_Name']!="")){
+
+  $position_name = $_POST['Position_Name'];
+  $positionlist = "  SELECT DISTINCT position_post.post_content,position_post.position_title as 'post_title',position_post.post_id,company.company_name,(SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as 'first_name' , company.company_description
+                    FROM position_post,company,company_post
+                    WHERE position_post.position_title LIKE '%$position_name%' AND company.company_id=position_post.fk_company_id
+                ";
+  $CPQuery = $mysqli->query($positionlist);
+}
+if (isset($_POST['user_id']) && ($_POST['user_id']!="")){
+
+  $User_post = $_POST['user_id'];
+
+  $postslist = "      SELECT DISTINCT position_post.post_content,position_post.position_title as 'post_title',position_post.post_id, first_name
+                      FROM position_post,company,company_post,user
+                      WHERE first_name like '%$User_post%' and company_post.fk_user_id=user_id AND position_post.fk_user_id=user_id
+                ";
+  $CPQuery = $mysqli->query($postslist);
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,12 +74,13 @@ include '/resources/php/navbar.php';
 
     <div class = "col-sm-9">
         <?php
+if ((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_rows>0)){
 
   while($post = $CPQuery->fetch_assoc() )
             echo '
                 <div class="panel panel-default">
               <a href="viewPost.php?compna=',$post['post_id'],'" > <div class="panel-heading"><h3><b>',$post['company_name'],'</b></h3></div> </a>
-                        <div class="panel-body">About: <b>',$post['company_description'],'</b></span>
+                        <div class="panel-body">About: <b>',$post['company_description'],'</b></span> <span class="pull-right"> Position : ',$post['post_title'],' </span>
                             <div class="panel-body"><b>Comments:</b>
                              ',$post['post_content'],'</span>
                             </div>
@@ -68,6 +90,29 @@ include '/resources/php/navbar.php';
     </div>
 
     ';
+}
+elseif((isset($_POST['user_id']) && ($_POST['user_id']!="")) && ($CPQuery->num_rows<1)) {
+echo "No Results Found";
+}
+if ((isset($_POST['user_id']) && ($_POST['user_id']!="")) && ($CPQuery->num_rows>0)){
+while($post = $CPQuery->fetch_assoc() )
+          echo '
+              <div class="panel panel-default">
+            <a href="viewPost.php?compna=',$post['post_id'],'" > <div class="panel-heading"><h3><b>',$post['post_title'],'</b></h3></div> </a>
+                      <div class="panel-body">
+                          <div class="panel-body"><b>Comments:</b>
+                           ',$post['post_content'],'</span>
+                          </div>
+                      <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b> <span class="pull-right"> Position : ',$post['post_title'],' </span>
+                  </div>
+              </div>
+  </div>
+
+  ';
+}
+elseif((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_rows<1)){
+  echo("No Results Found ");
+}
     ?>
 
     </div>
