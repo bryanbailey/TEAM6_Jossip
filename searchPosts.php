@@ -56,7 +56,7 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 include '/resources/php/navbar.php';
 ?>
 
-<div class = "container.searchpost">
+<div class = "container">
 
     <h1 class="page-header">Search Jossip posts</h1>
 
