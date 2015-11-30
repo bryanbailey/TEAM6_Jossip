@@ -1,20 +1,19 @@
 <?php
+
 session_start();
+require '/resources/php/viewpostFunction.php';
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-if ($_GET['compna']!="") {
-  # code...
+
+
   $cP = $_GET['compna'];
-  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,
+  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,position_post.post_id,
   (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
   (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
   FROM position_post,company,company_post
   WHERE position_post.post_id=$cP and company_post.post_id=$cP
                     ";
   $postListSQLQuery = $mysqli->query($postListSQL);
-}
-
-
-
+  $post = $postListSQLQuery->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +28,31 @@ if ($_GET['compna']!="") {
     <!-- General Job Gossip styling -->
     <link rel="stylesheet" href="/resources/css/jgStyle.css">
     <script>
-        $(document).ready(function() {
+              $(document).ready(function() {
+                var value="" ;
+                $("input:radio[name=jobrating]").click(function() {
+                value = $(this).val();
+
+                });
+
+
             /* make navbar, sidebar list link display as active for current page */
             $("#navbar a[href=\"/viewPost.php\"]").parent("li").addClass("active");
             $("#sidebarList a[href=\"/viewPost.php\"]").addClass("active");
+          $("#Ratepost").click(function(){
+
+              var Rateposts = {"action":"RatePostsinfo", "post_id":"<?php echo $post['post_id'];?>", "rating":value};
+                  $.ajax({
+                  url: './resources/php/viewpostFunction.php',
+                  type: "POST",
+                  data: Rateposts,
+                  success:
+                      function(){
+$("body>.container").prepend('<div class="alert alert-success">Your Rating has been Posted!</div>');
+                      }
+              });
+                                            });
+
 
             });
     </script>
@@ -50,7 +70,7 @@ include '/resources/php/navbar.php';
     </div>
     <div class = "col-sm-9">
         <?php
-    $post = $postListSQLQuery->fetch_assoc();
+
             echo '
             <div class="panel panel-default">
           <div class="panel-heading"><h3><b>',$post['company_name'],'</b></h3></div> </a>
@@ -73,7 +93,6 @@ include '/resources/php/navbar.php';
         </div>
     <br><br>
     <div class="form-group">
-
            <span class="pull-left"><button type="submit" id="Ratepost" class="form-control btn btn-primary btn-block" name="post_position">Rate post</button></span>
     </div>
     ';

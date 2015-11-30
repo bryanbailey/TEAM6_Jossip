@@ -27,6 +27,7 @@ if( isset($_POST['action']) ){
         case 'deleteUserInfo':
                 $result = deleteUserInfo($_SESSION['user_id'], $_POST['first_name'], $_POST['last_name']);
                 break;
+
           }
 }
 function updateUserInfo($userID, $firstName, $lastName, $email){
@@ -51,10 +52,9 @@ function updateUserInfo($userID, $firstName, $lastName, $email){
 function deleteUserInfo($userID, $firstName, $lastName){
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-        $firstName_del="Unknown";
-        $lastName_del="Unknown";
+        $firstName_del="Deleted User";
         //$deleteSQL = "UPDATE `user` SET `first_name`=?, `last_name`=? WHERE `user_id`=? LIMIT 1";
-        $deleteSQL = "UPDATE user SET first_name='$firstName_del', last_name='$lastName_del',username='$firstName_del' WHERE user_id='$userID' LIMIT 1";
+        $deleteSQL = "UPDATE user SET first_name='$firstName_del', last_name='$firstName_del',username='$firstName_del' WHERE user_id='$userID' LIMIT 1";
         $CPQuery = $mysqli->query($deleteSQL);
         $mysqli->close();
     } catch (\Exception $e) {
