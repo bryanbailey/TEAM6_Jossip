@@ -87,7 +87,7 @@ if ((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_rows
             echo '
                 <div class="panel panel-default">
               <a href="viewPost.php?compna=',$post['post_id'],'" > <div class="panel-heading"><h3><b>',$post['company_name'],'</b></h3></div> </a>
-                        <div class="panel-body">About: <b>',$post['company_description'],'</b></span> <span class="pull-right"> Position : ',$post['post_title'],' </span>
+                        <div class="panel-body">Position : ',$post['post_title'],'
                             <div class="panel-body"><b>Comments:</b>
                              ',$post['post_content'],'</span>
                             </div>
@@ -110,7 +110,7 @@ while($post = $CPQuery->fetch_assoc() )
                           <div class="panel-body"><b>Comments:</b>
                            ',$post['post_content'],'</span>
                           </div>
-                      <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b> <span class="pull-right"> Position : ',$post['post_title'],' </span>
+                      <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['username'],'</i></b> <span class="pull-right"> Position : ',$post['post_title'],' </span>
                   </div>
               </div>
   </div>
