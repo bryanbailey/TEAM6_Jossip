@@ -1,14 +1,20 @@
 <?php
 session_start();
-$cP = $_GET['compna'];
-    $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-    $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,
-    (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
-    (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
-    FROM position_post,company,company_post
-    WHERE position_post.post_id=$cP and company_post.post_id=$cP
-                      ";
-    $postListSQLQuery = $mysqli->query($postListSQL);
+$mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
+if ($_GET['compna']!="") {
+  # code...
+  $cP = $_GET['compna'];
+  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,
+  (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
+  (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
+  FROM position_post,company,company_post
+  WHERE position_post.post_id=$cP and company_post.post_id=$cP
+                    ";
+  $postListSQLQuery = $mysqli->query($postListSQL);
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +33,14 @@ $cP = $_GET['compna'];
             /* make navbar, sidebar list link display as active for current page */
             $("#navbar a[href=\"/viewPost.php\"]").parent("li").addClass("active");
             $("#sidebarList a[href=\"/viewPost.php\"]").addClass("active");
-        });
+
+            });
     </script>
 </head>
 <body>
 <?php
 include '/resources/php/navbar.php';
 ?>
-
 <div class = "container">
     <h1 class="page-header">Jossip Post</h1>
     <div class="col-sm-3">
@@ -42,10 +48,8 @@ include '/resources/php/navbar.php';
         include '/resources/php/sidebarList.php';
         ?>
     </div>
-
     <div class = "col-sm-9">
         <?php
-
     $post = $postListSQLQuery->fetch_assoc();
             echo '
             <div class="panel panel-default">
@@ -69,10 +73,10 @@ include '/resources/php/navbar.php';
         </div>
     <br><br>
     <div class="form-group">
-           <span class="pull-left"><button type="submit" class="form-control btn btn-primary btn-block" name="post_position" >Rate post</button></span>
+
+           <span class="pull-left"><button type="submit" id="Ratepost" class="form-control btn btn-primary btn-block" name="post_position">Rate post</button></span>
     </div>
     ';
-
     ?>
     </div>
 </div>

@@ -102,9 +102,25 @@ $mysqli->close();
                         function(){
                             $("#userInfoSavedAlert").show();
                         }
+                });
+            });
+            /*  Delete */
+
+            $("#deleteUser").click(function(){
+
+                var DeleteData = {"action":"deleteUserInfo", "first_name":$("#first_name").val(), "last_name":$("#last_name").val()};
+                $.ajax({
+                    url: './resources/php/profileFunctions.php',
+                    type: "POST",
+                    data: DeleteData,
+                    success:
+                        function(){
+                            $("#userInfoSavedAlert").show();
+                        }
 
                 });
             });
+
 
         });
     </script>
@@ -195,6 +211,7 @@ $mysqli->close();
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary btn-block" id="saveUserInfo">Update Info</button></div>
                         <div class="col-sm-4"><div class="alert alert-success text-center" id="userInfoSavedAlert">Saved!</div></div>
+                        <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary_delete btn-block" id="deleteUser">Delete Info</button></div>
                     </div>
                     </div>
                 </div>
@@ -205,4 +222,3 @@ $mysqli->close();
 
 </body>
 </html>
-

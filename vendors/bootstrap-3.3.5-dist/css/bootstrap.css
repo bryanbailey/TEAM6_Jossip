@@ -3134,6 +3134,11 @@ fieldset[disabled] .btn-default.active {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
+.btn-primary_delete {
+  color: #ff0000;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;

@@ -1,5 +1,7 @@
 <?php
-session_start();
+require '/resources/php/profileFunctions.php';
+
+
   $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
     if (isset($_POST['company_name']) && ($_POST['company_name']!="")) {
       $company_name = $_POST['company_name'];
@@ -52,6 +54,9 @@ if (isset($_POST['user_id']) && ($_POST['user_id']!="")){
             /* make navbar, sidebar list link display as active for current page */
             $("#navbar a[href=\"/viewPost.php\"]").parent("li").addClass("active");
             $("#sidebarList a[href=\"/viewPost.php\"]").addClass("active");
+
+
+
 
         });
     </script>
