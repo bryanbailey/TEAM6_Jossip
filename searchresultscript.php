@@ -27,9 +27,11 @@ if (isset($_POST['user_id']) && ($_POST['user_id']!="")){
 
   $postslist = "      SELECT DISTINCT position_post.post_content,position_post.position_title as 'post_title',position_post.post_id, first_name
                       FROM position_post,company,company_post,user
-                      WHERE first_name like '%$User_post%' and company_post.fk_user_id=user_id AND position_post.fk_user_id=user_id
+                      WHERE first_name like '%$User_post%' AND position_post.fk_user_id=user_id
                 ";
   $CPQuery = $mysqli->query($postslist);
+  
+
 
 }
 

@@ -3,9 +3,8 @@
 session_start();
 require '/resources/php/viewpostFunction.php';
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-
-
   $cP = $_GET['compna'];
+echo $cP;
   $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,position_post.post_id,
   (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
   (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
