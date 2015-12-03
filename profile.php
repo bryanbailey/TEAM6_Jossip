@@ -211,7 +211,7 @@ $mysqli->close();
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary btn-block" id="saveUserInfo">Update Info</button></div>
                         <div class="col-sm-4"><div class="alert alert-success text-center" id="userInfoSavedAlert">Saved!</div></div>
-                        <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary_delete btn-block" id="deleteUser">Delete Info</button></div>
+                        <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary_delete btn-block" id="deleteUser">Delete profile</button></div>
                     </div>
                     </div>
                 </div>
