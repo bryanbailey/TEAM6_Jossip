@@ -62,17 +62,24 @@ $mysqli->close();
                         $(this).val(ui.item.label);
                         $("#companyID").val(ui.item.value);
                         console.log(ui.item.value);
-                    }
+                    },
+                appendTo: $("#companyInput").parent(".form-group")
             });
 
             $("#companyStart").datepicker({dateFormat: "yy-mm-dd"});
             $("#companyEnd").datepicker({dateFormat: "yy-mm-dd"});
 
+            /* save star rating  */
+            $starRating=0;
+            $('.rating > input[type="radio"]').click(function(){
+                $starRating = $(this).val();
+            });
+
             /*
                 submit work history
              */
             $("#submitCompany").click(function(){
-                var companyData = {"action":"addEmploymentHistory", "companyID":$("#companyID").val(), "startDate":$("#companyStart").val(), "endDate":$("#companyEnd").val(), "rating":$('.rating > input[type="radio"]').val() };
+               var companyData = {"action":"addEmploymentHistory", "companyID":$("#companyID").val(), "startDate":$("#companyStart").val(), "endDate":$("#companyEnd").val(), "rating":$starRating };
                 console.log(companyData);
                 $.ajax({
                     url: './resources/php/profileFunctions.php',
@@ -86,6 +93,8 @@ $mysqli->close();
                                                                             +'<td>'+$("#companyEnd").val()+'</td>'
                                                                             +'<td>'+$('.rating > input[type="radio"]').val()+'</td></tr>');
                             $("#addEmploymentHistory input").val("");
+                            $("#addEmploymentHistory").modal('hide');
+                            $starRating=0;
                         }
                 });
             });
@@ -121,9 +130,7 @@ $mysqli->close();
                 });
             });
 
-            $('.rating > input[type="radio"]').click(function(){
-                console.log($(this).val());
-            });
+
 
         });
     </script>
@@ -217,8 +224,6 @@ $mysqli->close();
                 </table>
 
                 <button class="btn btn-link" id="showCompanyInput">Add a company</button>
-                <br />
-
 
             </div>
         </div>

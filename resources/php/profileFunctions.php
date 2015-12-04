@@ -111,7 +111,7 @@ function addEmploymentHistory($userID, $companyID, $startDate, $endDate, $rating
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 
         $addHistorySQL = "INSERT INTO `employment_history` (`fk_user_id`, `fk_company_id`, `start_date`, `end_date`, `company_rating`)
-                                                      VALUES (?, ?, ?, ?)";
+                                                      VALUES (?, ?, ?, ?, ?)";
         $stmt = $mysqli->prepare($addHistorySQL);
         $stmt->bind_param('sssss', $userID, $companyID, $startDate, $endDate, $rating);
         $result = $stmt->execute();
