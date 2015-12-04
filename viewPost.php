@@ -4,8 +4,8 @@ session_start();
 require '/resources/php/viewpostFunction.php';
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
   $cP = $_GET['compna'];
-echo $cP;
-  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,position_post.post_id,
+
+  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,position_post.post_id,(SELECT rating from position_post_rating WHERE position_post_rating.fk_position_post=$cP) as rating,
   (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
   (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
   FROM position_post,company,company_post
@@ -78,8 +78,8 @@ include '/resources/php/navbar.php';
                          ',$post['post_content'],'</span>
                         </div>
                     <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b>
-                </div>
-            </div>
+                <div class="pull-right" style="font-size: small">Rating:<b>',$post['rating'],'</b>
+            </div> </div> </div> 
 </div>
     <br>
         <span clas="pull-left"> Please rate this post in terms of its helpfulness to you:</span><br>

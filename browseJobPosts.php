@@ -75,7 +75,7 @@ include '/resources/php/navbar.php';
             ';
 
             echo '
-                 <div class="text-right"><a href="#">See the whole ', $post['position_title'], ' post and its rating.</a></div>
+                 <div class="text-right"><a href="seewhatscript.php?Position_Name=',$post['position_title'],'">See the whole ', $post['position_title'], ' post and its rating.</a></div>
             </div>
             ';
         }

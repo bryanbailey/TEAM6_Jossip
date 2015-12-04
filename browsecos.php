@@ -94,7 +94,7 @@
 
                         echo '    </div>
                                 </h3>
-                                <div class="text-right"><a href="#">See what people are saying about positions at ',$company['company_name'],'</a></div>
+                                <div class="text-right"><a href="seewhatscript.php?company_name=',$company['company_name'],'">See what people are saying about positions at ',$company['company_name'],'</a></div>
                             </div>
                         ';
                     }
