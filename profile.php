@@ -88,10 +88,12 @@ $mysqli->close();
                     success:
                         function(){
                             $("#addEmploymentHistory").hide();
+                            $stars = "";
+                            for(i=0; i<$starRating; i++){ $stars += '<span class="glyphicon glyphicon-star"></span>'; }
                             $("#employmentHistory table tbody").append('<tr><td>'+$("#companyInput").val()+'</td>'
                                                                             +'<td>'+$("#companyStart").val()+'</td>'
                                                                             +'<td>'+$("#companyEnd").val()+'</td>'
-                                                                            +'<td>'+$('.rating > input[type="radio"]').val()+'</td></tr>');
+                                                                            +'<td>'+$stars+'</td></tr>');
                             $("#addEmploymentHistory input").val("");
                             $("#addEmploymentHistory").modal('hide');
                             $starRating=0;
