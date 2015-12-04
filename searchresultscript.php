@@ -110,7 +110,7 @@ while($post = $CPQuery->fetch_assoc() )
                           <div class="panel-body"><b>Comments:</b>
                            ',$post['post_content'],'</span>
                           </div>
-                      <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['username'],'</i></b> <span class="pull-right"> Position : ',$post['post_title'],' </span>
+                      <div class="panel-heading" style="font-size:small"><i></b>Poster: <b>',$post['first_name'],'</i></b> <span class="pull-right"> Position : ',$post['post_title'],' </span>
                   </div>
               </div>
   </div>
