@@ -9,7 +9,7 @@ echo $cP;
   (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
   (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
   FROM position_post,company,company_post
-  WHERE position_post.post_id=$cP and company_post.post_id=$cP
+  WHERE position_post.post_id=$cP
                     ";
   $postListSQLQuery = $mysqli->query($postListSQL);
   $post = $postListSQLQuery->fetch_assoc();
