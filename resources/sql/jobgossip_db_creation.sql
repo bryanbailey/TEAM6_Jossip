@@ -1,20 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Nov 16, 2015 at 05:14 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `jobgossip`
@@ -89,15 +72,19 @@ CREATE TABLE IF NOT EXISTS `employment_history` (
   `fk_user_id` int(11) NOT NULL,
   `fk_company_id` int(11) NOT NULL,
   `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `end_date` date DEFAULT NULL,
+  `company_rating` tinyint(4) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employment_history`
 --
 
-INSERT INTO `employment_history` (`employment_record_id`, `fk_user_id`, `fk_company_id`, `start_date`, `end_date`) VALUES
-(1, 1, 11, '2015-04-07', NULL);
+INSERT INTO `employment_history` (`employment_record_id`, `fk_user_id`, `fk_company_id`, `start_date`, `end_date`, `company_rating`) VALUES
+(1, 1, 11, '2015-04-07', NULL, 5),
+(2, 1, 2, '2015-11-20', '2015-11-23', 3),
+(6, 1, 8, '2014-10-08', '2015-04-23', 2),
+(7, 1, 10, '2014-04-08', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -112,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `position_post` (
   `position_title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `post_content` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `post_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `position_post`
@@ -121,7 +108,10 @@ CREATE TABLE IF NOT EXISTS `position_post` (
 INSERT INTO `position_post` (`post_id`, `fk_user_id`, `fk_company_id`, `position_title`, `post_content`, `post_time`) VALUES
 (1, 4, 4, 'Taste Tester', 'I may have drank too much during my tenure but it was a good run. Management is friendly and the atmosphere is pleasant', '2015-10-27 13:19:27'),
 (2, 6, 13, 'Software Engineer', 'Get ready for the Agile Scrum process! Either learn fast and contribute or get out of the way! The methods are efficient and the teams well organized. This company knows how to utilize their talents and they pay dividends with benefits. 10/10 best job I''ve ever had.', '2015-10-27 13:21:53'),
-(5, 1, 11, 'dev', 'lots', '2015-11-13 11:41:01');
+(5, 1, 11, 'dev', 'lots', '2015-11-13 11:41:01'),
+(6, 1, 11, 'Manager', 'it was cool', '2015-11-16 22:29:40'),
+(7, 1, 11, 'dcvfbn', 'fb fb f bfb', '2015-11-16 22:31:17'),
+(8, 1, 11, 'dcvfbn', 'fb fb f bfb', '2015-11-16 22:33:00');
 
 -- --------------------------------------------------------
 
@@ -150,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `registration_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -164,7 +154,8 @@ INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `email`, `
 (5, 'heyyyburt', 'Burt', 'Wilkinson', 'heyyy@yahoo.com', '572322840562fb061982cc1.34052342', '57pK2EK2Kjgos', '2015-10-27 13:12:01'),
 (6, 'linkedin', 'Alexandra', 'Smith', 'alexsmith@uncc.edu', '1030370781562fb094398e57.08280381', '10xCP/g3c1sQc', '2015-10-27 13:12:52'),
 (7, 'samtom', 'sam', 'thomas', 'sssttt@uncc.edu', '12082456945633957388c616.49635957', '12CsGd8FRcMSM', '2015-10-30 12:06:11'),
-(8, 'rickyh', 'rick', 'hatton', 'rickky@aol.com', '398289611563396a2576b25.59875413', '39ujvZR3H44SQ', '2015-10-30 12:11:14');
+(8, 'rickyh', 'rick', 'hatton', 'rickky@aol.com', '398289611563396a2576b25.59875413', '39ujvZR3H44SQ', '2015-10-30 12:11:14'),
+(9, 'bbbt', 'burt', 'renolds', 'bbbt', '11653202375661b59e024f44.38971107', '11fzdpvsGNKVI', '2015-12-04 10:47:42');
 
 --
 -- Indexes for dumped tables
@@ -233,17 +224,17 @@ ALTER TABLE `company_post`
 -- AUTO_INCREMENT for table `employment_history`
 --
 ALTER TABLE `employment_history`
-  MODIFY `employment_record_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `employment_record_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `position_post`
 --
 ALTER TABLE `position_post`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --
