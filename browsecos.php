@@ -4,11 +4,14 @@
 
     $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 
+    /*
+     * pull rating from employment history, not company_post
+     */
     $companyListSQL = " SELECT `company_id`, `company_name`,`company_description`, `rating`
                         FROM (
                           SELECT `company_id`, `company_name`,`company_description`, TRUNCATE(AVG(`company_rating`),1) AS 'rating'
                           FROM `company`
-                            LEFT JOIN `Company_Post` ON `Company`.`company_id` = `Company_Post`.`fk_company_id`
+                            LEFT JOIN `Employment_History` ON `Company`.`company_id` = `Employment_history`.`fk_company_id`
                           WHERE 1
                           GROUP BY `company_id`
                           ORDER BY `rating` DESC

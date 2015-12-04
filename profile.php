@@ -141,8 +141,8 @@ $mysqli->close();
 
 <body>
 
-    <div class="modal " id="addEmploymentHistory">
-        <div class="modal-dialog">
+    <div class="modal" id="addEmploymentHistory">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>Add Employment History</h3>
