@@ -5,9 +5,9 @@ require '/resources/php/profileFunctions.php';
   $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
     if (isset($_POST['company_name']) && ($_POST['company_name']!="")) {
       $company_name = $_POST['company_name'];
-      $companylist = "  SELECT DISTINCT company_post.post_title,company_post.post_content ,post_id,company_name,post_id,company_description ,company_post.fk_company_id,
-      (SELECT user.first_name FROM user WHERE user.user_id=company_post.fk_user_id) as 'first_name'
-      FROM company,company_post WHERE company_post.fk_company_id
+      $companylist = "   SELECT DISTINCT position_post.position_title as post_title ,position_post.post_id,position_post.post_content,company_name,position_post.post_id,company_description ,position_post.fk_company_id,
+      (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as 'first_name'
+      FROM company,company_post,position_post WHERE position_post.fk_company_id
       in(SELECT company_id FROM company WHERE company_name like '%$company_name%' ) and company_name like '%$company_name%'
                     ";
       $CPQuery = $mysqli->query($companylist);
@@ -30,7 +30,7 @@ if (isset($_POST['user_id']) && ($_POST['user_id']!="")){
                       WHERE first_name like '%$User_post%' AND position_post.fk_user_id=user_id
                 ";
   $CPQuery = $mysqli->query($postslist);
-  
+
 
 
 }
