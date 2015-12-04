@@ -51,7 +51,7 @@ $mysqli->close();
         $(document).ready(function() {
 
             $("#showCompanyInput").click(function(){
-                $("#addEmploymentHistory").toggle();
+                $("#addEmploymentHistory").modal('show');
             });
 
             $("#companyInput").autocomplete({
@@ -72,7 +72,7 @@ $mysqli->close();
                 submit work history
              */
             $("#submitCompany").click(function(){
-                var companyData = {"action":"addEmploymentHistory", "companyID":$("#companyID").val(), "startDate":$("#companyStart").val(), "endDate":$("#companyEnd").val() };
+                var companyData = {"action":"addEmploymentHistory", "companyID":$("#companyID").val(), "startDate":$("#companyStart").val(), "endDate":$("#companyEnd").val(), "rating":$('.rating > input[type="radio"]').val() };
                 console.log(companyData);
                 $.ajax({
                     url: './resources/php/profileFunctions.php',
@@ -83,7 +83,8 @@ $mysqli->close();
                             $("#addEmploymentHistory").hide();
                             $("#employmentHistory table tbody").append('<tr><td>'+$("#companyInput").val()+'</td>'
                                                                             +'<td>'+$("#companyStart").val()+'</td>'
-                                                                            +'<td>'+$("#companyEnd").val()+'</td></tr>');
+                                                                            +'<td>'+$("#companyEnd").val()+'</td>'
+                                                                            +'<td>'+$('.rating > input[type="radio"]').val()+'</td></tr>');
                             $("#addEmploymentHistory input").val("");
                         }
                 });
@@ -107,7 +108,6 @@ $mysqli->close();
             /*  Delete */
 
             $("#deleteUser").click(function(){
-
                 var DeleteData = {"action":"deleteUserInfo", "first_name":$("#first_name").val(), "last_name":$("#last_name").val()};
                 $.ajax({
                     url: './resources/php/profileFunctions.php',
@@ -121,6 +121,9 @@ $mysqli->close();
                 });
             });
 
+            $('.rating > input[type="radio"]').click(function(){
+                console.log($(this).val());
+            });
 
         });
     </script>
@@ -128,6 +131,41 @@ $mysqli->close();
 </head>
 
 <body>
+
+    <div class="modal " id="addEmploymentHistory">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Employment History</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input class="form-control" id="companyInput" placeholder="Company" />
+                        <input type="hidden" id="companyID" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="companyStart" placeholder="start" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="companyEnd" placeholder="end" />
+                    </div>
+                    <div class="form-group text-center clearfix">
+                        <div class="rating">
+                            <input type="radio" id="star5" name="jobrating" value="5" /><label for="star5" title="Best">5 stars</label>
+                            <input type="radio" id="star4" name="jobrating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                            <input type="radio" id="star3" name="jobrating" value="3" /><label for="star3" title="Satisfactory">3 stars</label>
+                            <input type="radio" id="star2" name="jobrating" value="2" /><label for="star2" title="Not great">2 stars</label>
+                            <input type="radio" id="star1" name="jobrating" value="1" /><label for="star1" title="Unsatisfactory">1 star</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary pull-right" id="submitCompany"><span class="glyphicon glyphicon-floppy-save"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php
     include './resources/php/navbar.php';
@@ -158,6 +196,7 @@ $mysqli->close();
                         <th>Company</th>
                         <th class="text-muted">start</th>
                         <th class="text-muted">end</th>
+                        <th>My Rating</th>
                     </thead>
                     <tbody>
                         <?php
@@ -166,6 +205,11 @@ $mysqli->close();
                                     <td>',$company['company_name'],'</td>
                                     <td>',$company['start_date'],'</td>
                                     <td>',$company['end_date'],'</td>
+                                    <td>';
+                                        for($i=0;$i<$company['company_rating'];$i++){
+                                            echo '<span class="glyphicon glyphicon-star"></span>';
+                                        };
+                            echo    '</td>
                                 </tr>';
                         }
                         ?>
@@ -175,15 +219,6 @@ $mysqli->close();
                 <button class="btn btn-link" id="showCompanyInput">Add a company</button>
                 <br />
 
-                <div class="well well-sm" id="addEmploymentHistory">
-                    <div class="form-inline text-center">
-                        <input class="form-control" id="companyInput" placeholder="Company" />
-                        <input type="hidden" id="companyID" />
-                        <input type="text" class="form-control" id="companyStart" placeholder="start" />
-                        <input type="text" class="form-control" id="companyEnd" placeholder="end" />
-                        <button type="button" class="btn btn-default" id="submitCompany"><span class="glyphicon glyphicon-plus"></span></button>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -211,11 +246,14 @@ $mysqli->close();
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary btn-block" id="saveUserInfo">Update Info</button></div>
                         <div class="col-sm-4"><div class="alert alert-success text-center" id="userInfoSavedAlert">Saved!</div></div>
-                        <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-primary_delete btn-block" id="deleteUser">Delete profile</button></div>
                     </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4"><button class="btn btn-danger btn-block" id="deleteUser">Delete profile</button></div>
         </div>
 
     </div>

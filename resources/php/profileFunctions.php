@@ -18,7 +18,7 @@ if(session_id() == '' || !isset($_SESSION)) {
 if( isset($_POST['action']) ){
     switch($_POST['action']){
         case 'addEmploymentHistory':
-            $result = addEmploymentHistory($_SESSION['user_id'], $_POST['companyID'], $_POST['startDate'], $_POST['endDate']);
+            $result = addEmploymentHistory($_SESSION['user_id'], $_POST['companyID'], $_POST['startDate'], $_POST['endDate'], $_POST['rating']);
             echo $result;
             break;
         case 'updateUserInfo':
@@ -86,7 +86,7 @@ function getUserInfo($userID){
 function getCompanyHistory($userID){
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
-        $historySQL = "SELECT `company_name`, `start_date`, `end_date`
+        $historySQL = "SELECT `company_name`, `start_date`, `end_date`, `company_rating`
                         FROM `employment_history`
                         LEFT JOIN `company`
                         ON `company`.`company_id` = `employment_history`.`fk_company_id`
@@ -106,14 +106,14 @@ function getCompanyHistory($userID){
     return $historyResults;
 }
 
-function addEmploymentHistory($userID, $companyID, $startDate, $endDate){
+function addEmploymentHistory($userID, $companyID, $startDate, $endDate, $rating){
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 
-        $addHistorySQL = "INSERT INTO `employment_history` (`fk_user_id`, `fk_company_id`, `start_date`, `end_date`)
+        $addHistorySQL = "INSERT INTO `employment_history` (`fk_user_id`, `fk_company_id`, `start_date`, `end_date`, `company_rating`)
                                                       VALUES (?, ?, ?, ?)";
         $stmt = $mysqli->prepare($addHistorySQL);
-        $stmt->bind_param('ssss', $userID, $companyID, $startDate, $endDate);
+        $stmt->bind_param('sssss', $userID, $companyID, $startDate, $endDate, $rating);
         $result = $stmt->execute();
 
         $stmt->close();

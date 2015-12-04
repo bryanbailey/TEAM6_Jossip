@@ -86,3 +86,7 @@ body{
 ul.ui-autocomplete{
     background-color: lightgray;
 }
+
+#deleteUser{
+    margin-top: 50px;
+}
