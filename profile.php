@@ -187,7 +187,29 @@ $mysqli->close();
             <div class="col-xs-6 col-sm-3 col-sm-offset-3 profile-header">
                 <div class="large-circle"><p><?php echo $positionCount; ?></p></div>
                 <h4>Posts created</h4>
-                <span class="text-muted">Power User!</span>
+                <span class="text-muted">
+                <?php
+                    switch( intval($positionCount) ){
+                        case 0:
+                            echo 'Get Posting!';
+                            break;
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                            echo 'Gaining Jossip Points!';
+                            break;
+                        case 5:
+                        case 6:
+                            echo 'Keep them coming!';
+                            break;
+                        case 7:
+                        default:
+                            echo 'Power User!';
+                            break;
+                    }
+                ?>
+                </span>
             </div>
             <div class="col-xs-6 col-sm-3 profile-header">
                 <div class="large-circle"><p>4.3</p></div>
