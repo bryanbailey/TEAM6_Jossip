@@ -7,7 +7,7 @@ require '/resources/php/profileFunctions.php';
     if (isset($_GET['company_name']) && ($_GET['company_name']!="")) {
       $company_name = $_GET['company_name'];
       $companylist = "   SELECT DISTINCT position_post.position_title as post_title ,position_post.post_id,position_post.post_content,company_name,position_post.post_id,company_description ,position_post.fk_company_id,
-      (SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as 'first_name'
+      (SELECT user.username FROM user WHERE user.user_id=position_post.fk_user_id) as 'first_name'
       FROM company,company_post,position_post WHERE position_post.fk_company_id
       in(SELECT company_id FROM company WHERE company_name like '%$company_name%' ) and company_name like '%$company_name%'
                     ";
@@ -16,8 +16,8 @@ require '/resources/php/profileFunctions.php';
 if (isset($_GET['Position_Name']) && ($_GET['Position_Name']!="")){
 
   $position_name = $_GET['Position_Name'];
-  
-  $positionlist = "  SELECT DISTINCT position_post.post_content,position_post.position_title as 'post_title',position_post.post_id,company.company_name,(SELECT user.first_name FROM user WHERE user.user_id=position_post.fk_user_id) as 'first_name' , company.company_description
+
+  $positionlist = "  SELECT DISTINCT position_post.post_content,position_post.position_title as 'post_title',position_post.post_id,company.company_name,(SELECT user.username  FROM user WHERE user.user_id=position_post.fk_user_id) as 'first_name' , company.company_description
                     FROM position_post,company,company_post
                     WHERE position_post.position_title LIKE '%$position_name%' AND company.company_id=position_post.fk_company_id
                 ";

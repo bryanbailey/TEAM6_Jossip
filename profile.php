@@ -7,6 +7,7 @@ if(session_id() == '' || !isset($_SESSION)) {
     // session isn't started
     session_start();
 }
+
 $mysqli = createDBConnection(); //db connection object
 
 $history = getCompanyHistory($_SESSION['user_id']);//employment history of user
