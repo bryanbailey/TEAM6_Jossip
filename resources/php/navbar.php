@@ -16,20 +16,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <ul class="nav navbar-brand">
-                <li style="color:red">Jossip!</li>
-            </ul>
-            <!--            <a class="navbar-brand" href="/index.php">Jossip!</a>       -->
+          <a class="navbar-brand" href="index.php">Jossip</a>            <!--            <a class="navbar-brand" href="/index.php">Jossip!</a>       -->
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/index.php">Home</a></li>
                 <li><a href="/browsecos.php">Companies by current rank</a></li>
             </ul>
-
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo isset($_SESSION['JobGossipLogin']) ? $_SESSION['user'] :  "Guest";  ?> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-user"></i>
+                      <?php echo isset($_SESSION['JobGossipLogin']) ? $_SESSION['user'] :  "Guest";  ?> <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
                         <?php

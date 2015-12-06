@@ -60,18 +60,13 @@
         ?>
 
         <div class = "container">
-
             <h1 class="page-header">Top-ranked trending companies</h1>
-
             <div class="col-sm-3">
                 <?php
                     include '/resources/php/sidebarList.php';
                 ?>
-
                 <br>
-
                 <div class="pull-left">Ratings of <b>1 to 5 stars</b> are assigned to the companies by individuals who have been employed by those firms.</div>
-
             </div>
 
             <div class = "col-sm-9">
