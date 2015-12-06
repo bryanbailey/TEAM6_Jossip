@@ -87,7 +87,13 @@ if ($CPQuery->num_rows>0){
 
     ';
 } else {
-  echo "No Results were found";
+  echo '
+      <div class="panel panel-default">
+  <div class="panel-heading"><h3>No results were found!</b></h3></div> </a>
+  </div>
+</div>
+
+';
 }
     ?>
 

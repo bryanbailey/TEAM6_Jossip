@@ -99,7 +99,11 @@ if ((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_rows
     ';
 }
 elseif((isset($_POST['user_id']) && ($_POST['user_id']!="")) && ($CPQuery->num_rows<1)) {
-echo "No Results Found";
+echo '  <div class="panel panel-default">
+<div class="panel-heading"><h3>No results were found!</b></h3></div> </a>
+</div>
+</div>'
+;
 }
 if ((isset($_POST['user_id']) && ($_POST['user_id']!="")) && ($CPQuery->num_rows>0)){
 while($post = $CPQuery->fetch_assoc() )
@@ -118,7 +122,13 @@ while($post = $CPQuery->fetch_assoc() )
   ';
 }
 elseif((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_rows<1)){
-  echo("No Results Found ");
+  echo '
+      <div class="panel panel-default">
+  <div class="panel-heading"><h3>No results were found!</b></h3></div> </a>
+  </div>
+</div>
+
+';
 }
     ?>
 
