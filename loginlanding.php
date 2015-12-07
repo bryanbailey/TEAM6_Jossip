@@ -9,32 +9,42 @@
     <!-- jquery 2.1.4 -->
     <script src="./vendors/jquery-2.1.4.min.js"></script>
 
-    <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
-    <script src="./vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./resources/css/jgStyle.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/plugins/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="./resources/startbootstrap-sb-admin-1.0.4/js/jquery.js"></script>
 
-    <!-- General Jossip styling -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./resources/startbootstrap-sb-admin-1.0.4/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
-<?php
-session_start();                    //call at very begining of all pages
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <?php
+        session_start();
+        include './resources/php/navbar.php';
+        include '/resources/php/sidebarList.php';
+    ?>
+  </div>
+  </nav>
+  <div id="page-wrapper">
+  <div class="container-fluid">
 
-include './resources/php/navbar.php';
-?>
-<div class = "container">
 
-    <h1 class="page-header">Welcome to Jossip!</h1>
 
     <div class="col-sm-3">
-        <?php
-        include '/resources/php/sidebarList.php';
-        ?>
+
     </div>
 
-    <div id = "main">
+    <div id = "main" style="padding-bottom:320px;">
+      <h1 class="page-header">Welcome to Jossip!</h1>
         <h3>You've successfully logged in to Jossip!</h3>
         <p>Would you like to:</p>
         <ol>
@@ -48,6 +58,6 @@ include './resources/php/navbar.php';
 
     </div>
 </div>
-
+</div>
 </body>
 </html>
