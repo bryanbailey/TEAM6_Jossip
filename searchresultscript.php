@@ -43,12 +43,18 @@ if (isset($_POST['user_id']) && ($_POST['user_id']!="")){
     <title>Viewing position post</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
     <script src="/vendors/jquery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
-    <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/plugins/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="./resources/startbootstrap-sb-admin-1.0.4/js/jquery.js"></script>
 
-    <!-- General Job Gossip styling -->
-    <link rel="stylesheet" href="/resources/css/jgStyle.css">
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./resources/startbootstrap-sb-admin-1.0.4/js/bootstrap.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -64,22 +70,27 @@ if (isset($_POST['user_id']) && ($_POST['user_id']!="")){
     </script>
 </head>
 <body>
-<?php
-include '/resources/php/navbar.php';
-?>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <?php
+        include './resources/php/navbar.php';
+        include '/resources/php/sidebarList.php';
+    ?>
+  </div>
+  </nav>
+<div id="page-wrapper">
+<div class = "container-fluid">
 
-<div class = "container">
 
 
-    <h1 class="page-header">Jossip Post</h1>
 
     <div class="col-sm-3">
-        <?php
-        include '/resources/php/sidebarList.php';
-        ?>
+
+
     </div>
 
-    <div class = "col-sm-9">
+    <div class = "col-sm-9" style="padding-bottom:180px;">
+        <h1 class="page-header">Jossip Post</h1>
         <?php
 if ((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_rows>0)){
 
@@ -133,8 +144,7 @@ elseif((isset($_POST['user_id']) && ($_POST['user_id']=="")) && ($CPQuery->num_r
     ?>
 
     </div>
-
-
+</div>
 </div>
 
 
