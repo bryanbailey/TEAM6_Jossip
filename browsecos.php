@@ -19,6 +19,8 @@
                         WHERE `rating` IS NOT NULL
                         ";
     $companyListQuery = $mysqli->query($companyListSQL);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,18 +31,16 @@
         <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
         <script src="/vendors/jquery-2.1.4.min.js"></script>
 
-        <!-- Bootstrap Core CSS -->
-        <link href="./resources/startbootstrap-sb-admin-1.0.4/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="./resources/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
-        <!-- Morris Charts CSS -->
-        <link href="./resources/startbootstrap-sb-admin-1.0.4/css/plugins/morris.css" rel="stylesheet">
-        <!-- Custom Fonts -->
-        <link href="./resources/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <script src="./resources/startbootstrap-sb-admin-1.0.4/js/jquery.js"></script>
+        <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
+        <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="./resources/startbootstrap-sb-admin-1.0.4/js/bootstrap.min.js"></script>
+        <!-- General Job Gossip styling -->
+        <link rel="stylesheet" href="/resources/css/jgStyle.css">
+
+        <!-- browsecos css styling -->
+        <link rel="stylesheet" href="/resources/css/browsecos.css">
+
         <script>
             $(document).ready(function() {
 
@@ -55,23 +55,26 @@
     </head>
 
     <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="navbar-header">
         <?php
-            include './resources/php/navbar.php';
-            include '/resources/php/sidebarList.php';
+            include '/resources/php/navbar.php';
         ?>
-      </div>
-    </nav>
-        <div id="page-wrapper">
-            <div class="container-fluid">
+
+        <div class = "container">
+
+            <h1 class="page-header">Top-ranked trending companies</h1>
+
             <div class="col-sm-3">
+                <?php
+                    include '/resources/php/sidebarList.php';
+                ?>
+
                 <br>
 
+                <div class="pull-left">Ratings of <b>1 to 5 stars</b> are assigned to the companies by individuals who have been employed by those firms.</div>
+
             </div>
+
             <div class = "col-sm-9">
-              <h1 class="page-header">Top-ranked trending companies</h1>
-              <div class="pull-left">Ratings of <b>1 to 5 stars</b> are assigned to the companies by individuals who have been employed by those firms.</div>
                 <?php
                     while( $company = $companyListQuery->fetch_assoc() ){
                         $rating = floatval($company["rating"]);
@@ -106,7 +109,7 @@
                 </div>
 
             </div>
-</div>
+
         </div>
 
     </body>

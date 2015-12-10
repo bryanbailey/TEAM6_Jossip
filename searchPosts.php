@@ -9,20 +9,13 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
     <title>Jossip search page</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
     <script src="/vendors/jquery-2.1.4.min.js"></script>
-    <script src="/vendors/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/plugins/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="./resources/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="./resources/startbootstrap-sb-admin-1.0.4/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./resources/startbootstrap-sb-admin-1.0.4/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 3.3.5 JS, Bootstrap 3.3.5 CSS-->
+    <script src="/vendors/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- General Job Gossip styling -->
+    <link rel="stylesheet" href="/resources/css/jgStyle.css">
+    <!-- browsecos css styling -->
+    <link rel="stylesheet" href="/resources/css/browsecos.css">
     <style type="text/css">
                 .container> .alert{
             position: absolute;
@@ -59,26 +52,22 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="navbar-header">
-    <?php
-        include './resources/php/navbar.php';
-        include '/resources/php/sidebarList.php';
-    ?>
-  </div>
-  </nav>
+<?php
+include '/resources/php/navbar.php';
+?>
 
-  <div id="page-wrapper">
-  <div class="container-fluid">
+<div class = "container">
 
-
+    <h1 class="page-header">Search Jossip posts</h1>
 
     <div class="col-sm-3">
-
+        <?php
+        include '/resources/php/sidebarList.php';
+        ?>
     </div>
-    <div class = "col-sm-9" style="padding-bottom:150px;">
+
+    <div class = "col-sm-9">
         <div class="form-group">
-            <h1 class="page-header">Search Jossip posts</h1>
             <h4>You may search by one of the following criteria: </h4>
             <form class="form-signin" method="POST" action="/searchresultscript.php">
                       <label for="post_position">Job title: </label>
@@ -98,7 +87,6 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
             </button>
          </div>
     </div>
-</div>
 </div>
 </body>
 </html>
