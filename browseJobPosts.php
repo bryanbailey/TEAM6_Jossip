@@ -4,7 +4,7 @@ session_start();
 
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 
-$postListSQL = "  SELECT `p`.`position_title`,`p`.`post_content`,`c`.`company_name`,`u`.`first_name`
+$postListSQL = "  SELECT `p`.`position_title`,`p`.`post_content`,`c`.`company_name`,`u`.`first_name`,`p`.`post_id`
                 FROM `position_post` `p`,`company` `c`,`user` `u`
                 WHERE `p`.`fk_company_id`=`c`.`company_id` AND `p`.`fk_user_id` = `u`.`user_id`
                       ";
@@ -75,7 +75,7 @@ include '/resources/php/navbar.php';
             ';
 
             echo '
-                 <div class="text-right"><a href="seewhatscript.php?Position_Name=',$post['position_title'],'">See the whole ', $post['position_title'], ' post and its rating.</a></div>
+                 <div class="text-right"><a href="viewPost.php?compna=',$post['post_id'],'">See the whole ', $post['position_title'], ' post and its rating.</a></div>
             </div>
             ';
         }

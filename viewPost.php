@@ -5,7 +5,7 @@ require '/resources/php/viewpostFunction.php';
 $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
   $cP = $_GET['compna'];
 
-  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,position_post.post_id,(SELECT rating from position_post_rating WHERE position_post_rating.fk_position_post=$cP) as rating,
+  $postListSQL = " SELECT DISTINCT position_title,position_post.post_content,position_post.post_id,(SELECT round(AVG(rating),0) from position_post_rating WHERE position_post_rating.fk_position_post=$cP) as rating,
   (SELECT user.username FROM user WHERE user.user_id=position_post.fk_user_id) as first_name,
   (SELECT company.company_name FROM company WHERE company.company_id=position_post.fk_company_id) as company_name
   FROM position_post,company,company_post
@@ -33,13 +33,10 @@ $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
                 value = $(this).val();
 
                 });
-
-
             /* make navbar, sidebar list link display as active for current page */
             $("#navbar a[href=\"/viewPost.php\"]").parent("li").addClass("active");
             $("#sidebarList a[href=\"/viewPost.php\"]").addClass("active");
           $("#Ratepost").click(function(){
-
               var Rateposts = {"action":"RatePostsinfo", "post_id":"<?php echo $post['post_id'];?>", "rating":value};
                   $.ajax({
                   url: './resources/php/viewpostFunction.php',
@@ -51,6 +48,12 @@ $("body>.container").prepend('<div class="alert alert-success">Your Rating has b
                       }
               });
                                             });
+                                            $(function() {
+                                              var $radios = $('input:radio[name=jobrating]');
+                                              if($radios.is(':checked') === false) {
+                                              $radios.filter('[value=<?php echo $post['rating']; ?>]').prop('checked', true);
+    }
+});
 
 
             });

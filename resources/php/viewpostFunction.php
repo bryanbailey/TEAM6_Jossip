@@ -15,7 +15,7 @@ function RatePostsinfo($userID, $firstName, $lastName){
     try {
         $mysqli = new mysqli("localhost", "root", "eqBZKHCd775HA2fS", "JobGossip");
 
-        $selectsql="SELECT COUNT(fk_position_post) as pp_count FROM position_post_rating WHERE fk_position_post=$firstName";
+        $selectsql="SELECT COUNT(fk_position_post) as pp_count FROM position_post_rating WHERE fk_position_post=$firstName and fk_user_id=$userID" ;
         $CPQuery = $mysqli->query($selectsql);
         $post = $CPQuery->fetch_assoc();
         if ($post['pp_count']==0) {
@@ -24,7 +24,7 @@ function RatePostsinfo($userID, $firstName, $lastName){
           $CPQuery1 = $mysqli->query($insertsql);
         }
         if ($post['pp_count']==1){
-        $updatesql= "UPDATE position_post_rating SET rating=$lastName WHERE fk_position_post=$firstName";
+        $updatesql= "UPDATE position_post_rating SET rating=$lastName WHERE fk_position_post=$firstName and fk_user_id=$userID";
         $CPQuery2 = $mysqli->query($updatesql);
         }
         $mysqli->close();
