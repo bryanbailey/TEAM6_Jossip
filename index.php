@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
 
-                                        <div>Browse Company by rank</div>
+                                        <div>Browse companies<br>by rank</div>
                                     </div>
                                 </div>
                             </div>
