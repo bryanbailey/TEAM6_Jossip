@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="./vendors/bootstrap-3.3.5-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./resources/css/jgStyle.css">
 
-    <!-- General Jossip styling -->
+    <!-- login landing styling -->
+    <link rel="stylesheet" href="./resources/css/loginLanding.css">
 
 </head>
 <body>
@@ -34,17 +35,22 @@ include './resources/php/navbar.php';
         ?>
     </div>
 
-    <div id = "main">
-        <h3>You've successfully logged in to Jossip!</h3>
-        <p>Would you like to:</p>
-        <ol>
-            <li><a href="/profile.php">Change your account details?</a></li>
-            <li><a href="/createJobPost.php">Post and rate a position/company?</a></li>
-        </ol>
 
-    </div>
-
-    <div id = "login">
+    <div class="col-sm-9">
+        <h3 class="text-center">
+            You've successfully logged in!
+            <br /><small>What would you like to do?</small>
+        </h3>
+        <div class="row landing-header-row">
+            <div class="col-sm-6 landing-header">
+                <div class="large-circle"><p><span class="glyphicon glyphicon-user"></span></p></div>
+                <h4><a href="/profile.php">Change account details</a></h4>
+            </div>
+            <div class="col-sm-6 landing-header">
+                <div class="large-circle"><p><span class="glyphicon glyphicon-user"></span></p></div>
+                <h4><a href="/createJobPost.php">Post and Rate an employer</a></h4>
+            </div>
+        </div>
 
     </div>
 </div>
