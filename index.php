@@ -20,7 +20,8 @@
     <!-- general Joossip styling -->
     <link rel="stylesheet" type="text/css" href="/resources/css/jgStyle.css" />
     <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
-
+    <link href="./resources/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
+<link href="./resources/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script>
         $(document).ready(function() {
 
@@ -39,10 +40,102 @@
 ?>
 
 <div class = "container">
-    <div class="jumbotron">
+    <!-- <div>
         <h1 style="color:red">Jossip!</h1>
         <p>Where <i><span style="color:mediumpurple">jo</span>bs</i> and <i>go<span style="color:mediumpurple">ssip</span></i> meet.</p>
-    </div>
+    </div> -->
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-bars fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+
+                                        <div>Browse Company by rank</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browsecos.php"' : 'href="/login.php"'); ?> >
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-tasks fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+
+                                        <div>Post position</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createJobPost.php"' : 'href="/login.php"'); ?> >
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-search fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+
+                                        <div>Search for speicfic posts</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/searchPosts.php"' : 'href="/login.php"'); ?> >
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-8">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-list-alt fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+
+                                        <div>Browse position posts</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browseJobPosts.php"' : 'href="/login.php"'); ?> >
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                  </div>
 
     <div class="col-sm-3">
         <?php
@@ -52,7 +145,7 @@
 
     <!-- The "main" is where the majority of the php is going to take place, so look here on each page if you are looking for placement -bb -->
 
-    <div class="col-sm-offset-1 col-sm-8">
+    <div class="col-sm-offset col-sm-8">
         <h3>Welcome to Jossip</h3>
         <p>Jossip ("jobs" + "gossip") is devoted to spreading the scuttlebutt about employers and positions that you won't find anywhere else!</p>
         <p>To take full advantage of Jossip's features, create an <a href="./register.php"><b>account</b></a> so that you can access rated info on employers and positions.</p>
