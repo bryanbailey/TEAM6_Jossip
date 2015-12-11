@@ -64,7 +64,7 @@ $("body>.container").prepend('<div class="alert alert-success">Your Rating has b
 include '/resources/php/navbar.php';
 ?>
 <div class = "container">
-    <h1 class="page-header">Jossip Post</h1>
+    <h1 class="page-header">Jossip post</h1>
     <div class="col-sm-3">
         <?php
         include '/resources/php/sidebarList.php';
