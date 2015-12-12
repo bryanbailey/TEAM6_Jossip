@@ -61,7 +61,7 @@
                             </div>
                             <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browsecos.php"' : 'href="/login.php"'); ?> >
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left">View details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -83,7 +83,7 @@
                             </div>
                             <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/createJobPost.php"' : 'href="/login.php"'); ?> >
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left">View details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -99,13 +99,13 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
 
-                                        <div>Search for speicfic posts</div>
+                                        <div>Search for specific posts</div>
                                     </div>
                                 </div>
                             </div>
                             <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/searchPosts.php"' : 'href="/login.php"'); ?> >
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left">View details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -127,7 +127,7 @@
                             </div>
                             <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browseJobPosts.php"' : 'href="/login.php"'); ?> >
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left">View details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -144,6 +144,8 @@
         if( !isset( $_SESSION['JobGossipLogin'] ) ) {
             echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
             echo "<a class=\"list-group-item\" href=\"/register.php\">New user? Create an account</a>";
+        }else {
+            echo "<a class=\"list-group-item\" href=\"/profile.php\">View your profile information</a>";
         }
         ?>
 
