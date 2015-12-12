@@ -19,7 +19,7 @@
 
     <!-- general Joossip styling -->
     <link rel="stylesheet" type="text/css" href="/resources/css/jgStyle.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" />
+<!--    <link rel="stylesheet" type="text/css" href="/resources/css/jossstyle.css" /> -->
     <link href="./resources/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
 <link href="./resources/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script>
@@ -40,10 +40,10 @@
 ?>
 
 <div class = "container">
-    <!-- <div>
-        <h1 style="color:red">Jossip!</h1>
-        <p>Where <i><span style="color:mediumpurple">jo</span>bs</i> and <i>go<span style="color:mediumpurple">ssip</span></i> meet.</p>
-    </div> -->
+     <div>
+        <h1 class="page-header" style="color:red"><i><b>Jossip!</b></i></h1>
+        <p>Where <i><span style="color:mediumpurple">jo</span>bs</i> and <i>go<span style="color:mediumpurple">ssip</span></i> meet.</p><br>
+    </div>
 
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
@@ -138,9 +138,24 @@
                   </div>
 
     <div class="col-sm-3">
+        <div class="list-group">
+
         <?php
-            include '/resources/php/sidebarList.php';
+        if( !isset( $_SESSION['JobGossipLogin'] ) ) {
+            echo "<a class=\"list-group-item\" href=\"/login.php\">Login</a>";
+            echo "<a class=\"list-group-item\" href=\"/register.php\">New user? Create an account</a>";
+        }
         ?>
+
+        <a class="list-group-item" <?php if( isset( $_SESSION['JobGossipLogin'] ) ) {
+            echo "View your profile information";
+            echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/profile.php"' : 'href="/login.php"');
+        } ?> >
+        </a>
+
+        </div>
+
+
     </div>
 
     <!-- The "main" is where the majority of the php is going to take place, so look here on each page if you are looking for placement -bb -->
