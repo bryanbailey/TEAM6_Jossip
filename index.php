@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="active" <?php echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/browsecos.php"' : 'href="/login.php"'); ?> >
+                            <a class="active" href="/browsecos.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
