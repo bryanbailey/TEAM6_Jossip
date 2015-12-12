@@ -147,14 +147,7 @@
         }
         ?>
 
-        <a class="list-group-item" <?php if( isset( $_SESSION['JobGossipLogin'] ) ) {
-            echo "View your profile information";
-            echo (isset($_SESSION['JobGossipLogin'] ) ? 'href="/profile.php"' : 'href="/login.php"');
-        } ?> >
-        </a>
-
         </div>
-
 
     </div>
 
