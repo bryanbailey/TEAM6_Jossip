@@ -76,31 +76,41 @@
 
             <div class = "col-sm-9">
                 <?php
-                    while( $company = $companyListQuery->fetch_assoc() ){
+                    while( $company = $companyListQuery->fetch_assoc() ) {
                         $rating = floatval($company["rating"]);
                         echo '
                             <div class="well company-well">
                                 <h3>
-                                    <b>',$company['company_name'],'</b>
+                                    <b>', $company['company_name'], '</b>
                                     <div class="pull-right">';
 
-                                    //print star rating in glyphicons
-                                    for( $i=1; $i<=$rating; $i++ ){
-                                        echo '<span class="glyphicon glyphicon-star"></span>';
-                                    }
+                        //print star rating in glyphicons
+                        for ($i = 1; $i <= $rating; $i++) {
+                            echo '<span class="glyphicon glyphicon-star"></span>';
+                        }
 
-                                    //if decimal of rating avg is within .25-.75 print a half star
-                                    if( fmod($rating,1.0) >= 0.25 && fmod($rating,1.0) <= 0.75 ){
-                                        echo '<span class="glyphicon glyphicon-star glyphicon-star-half"></span>';
-                                    }
+                        //if decimal of rating avg is within .25-.75 print a half star
+                        if (fmod($rating, 1.0) >= 0.25 && fmod($rating, 1.0) <= 0.75) {
+                            echo '<span class="glyphicon glyphicon-star glyphicon-star-half"></span>';
+                        }
 
+                    if(isset( $_SESSION['JobGossipLogin'] ) ) {
 
-                        echo '    </div>
-                                </h3>
-                                <div class="text-right"><a href="seewhatscript.php?company_name=',$company['company_name'],'">See what people are saying about positions at ',$company['company_name'],'</a></div>
+                    echo '
+                        </div>
+                        </h3>
+
+                                <div class="text-right"><a href="seewhatscript.php?company_name=', $company['company_name'], '">See what people are saying about positions at ', $company['company_name'], '</a></div>
                             </div>
                         ';
-                    }
+                }else {
+
+                        echo '
+                        </div>
+                        </h3>
+                        </div>
+                        ';}
+                }
                 ?>
 
                 <!-- end of list message -->
