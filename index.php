@@ -158,8 +158,12 @@
     <div class="col-sm-offset col-sm-8">
         <h3>Welcome to Jossip</h3>
         <p>Jossip ("jobs" + "gossip") is devoted to spreading the scuttlebutt about employers and positions that you won't find anywhere else!</p>
-        <p>To take full advantage of Jossip's features, create an <a href="./register.php"><b>account</b></a> so that you can access rated info on employers and positions.</p>
-        <p>As a casual site visitor, you can browse a list of companies rated by Jossip users <a href="./browsecos.php"><b>here</b></a>.</p>
+        <?php
+            if( !isset( $_SESSION['JobGossipLogin'] ) ) {
+                echo "<p>To take full advantage of Jossip's features, create an <a href=\"./register.php\"><b>account</b></a> so that you can access rated info on employers and positions.</p>";
+                echo "<p>As a casual site visitor, you can browse a list of companies rated by Jossip users <a href=\"./browsecos.php\"><b>here</b></a>.</p>";
+            }
+        ?>
 
     </div>
 
