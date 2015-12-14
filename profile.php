@@ -24,6 +24,20 @@ $userInfo = $userInfo->fetch_assoc();
 
 $positionCount = getPostCount($mysqli, $_SESSION['user_id']);
 
+
+$postScoreSQL = "SELECT IFNULL(TRUNCATE(AVG(`rating`), 2), '-') AS 'rating'
+                FROM
+                (
+                SELECT `post_id`
+                FROM `position_post`
+                WHERE `fk_user_id` = ".$_SESSION['user_id']."
+                ) A
+                LEFT JOIN `position_post_rating`
+                ON `A`.`post_id` = `position_post_rating`.`fk_position_post`";
+$postScoreQuery = $mysqli->query($postScoreSQL)->fetch_assoc();
+$postScore = $postScoreQuery['rating'];
+
+
 $mysqli->close();
 
 
@@ -213,9 +227,9 @@ $mysqli->close();
                 </span>
             </div>
             <div class="col-xs-6 col-sm-3 profile-header">
-                <div class="large-circle"><p>4.3</p></div>
+                <div class="large-circle"><p><?php echo $postScore; ?></p></div>
                 <h4>Avg Post Score</h4>
-                <span class="text-muted">4.3/5</span>
+                <span class="text-muted"><?php echo $postScore; ?>/5</span>
             </div>
         </div>
 

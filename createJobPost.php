@@ -107,6 +107,7 @@ try {
                 }
             });
 
+
         });
     </script>
     <style type="text/css">
@@ -126,7 +127,7 @@ include './resources/php/navbar.php';
     <div class="modal-dialog">
         <span class="glyphicon glyphicon-ok"></span>
         <div class="success-text">Post Submitted!</div>
-        <button class="btn btn-xs btn-default" data-dismiss="modal">OK</button>
+        <a class="btn btn-xs btn-default" href="./index.php">OK</a>
     </div>
 </div>
 
