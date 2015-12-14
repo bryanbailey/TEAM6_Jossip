@@ -142,6 +142,7 @@ $mysqli->close();
                     success:
                         function(){
                             $("#userInfoSavedAlert").show();
+                            window.location.href = "./index.php";
                         }
 
                 });
